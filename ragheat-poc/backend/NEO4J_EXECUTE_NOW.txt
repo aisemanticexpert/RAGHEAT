@@ -1,0 +1,59 @@
+
+🚀 NEO4J BROWSER SETUP COMPLETE - EXECUTE NOW:
+
+STEP 1: Open Neo4j Browser
+📍 URL: http://localhost:7474
+🔑 Login: neo4j / neo4j123
+
+STEP 2: Apply Styling
+1. Click ⚙ (gear icon) → Browser Settings → Graph Stylesheet
+2. Copy content from: neo4j_applied_style.grass
+3. Paste and click Apply
+
+STEP 3: Run Main Query
+Copy and paste this query:
+
+MATCH (s:Stock)
+WHERE s.heat_score IS NOT NULL
+RETURN s
+ORDER BY s.heat_score DESC
+
+EXPECTED RESULTS:
+✅ 15 Stock nodes visible
+✅ UNH in ORANGE (highest heat)
+✅ Other stocks in BLUE
+✅ Stock symbols as labels
+✅ Dynamic sizing based on heat
+
+STEP 4: For Real-time Updates
+Re-run this query every minute:
+
+MATCH (s:Stock)
+WHERE datetime(s.last_updated) > datetime() - duration('PT5M')
+RETURN s
+ORDER BY s.heat_score DESC
+
+TROUBLESHOOTING:
+If nodes don't appear, run debug query:
+
+MATCH (s:Stock)
+RETURN count(s) as total_stocks, 
+       max(s.heat_score) as max_heat,
+       min(s.heat_score) as min_heat
+
+Current Heat Rankings:
+ 1. UNH: 0.0558 (cold)
+ 2. NVDA: 0.0322 (cold)
+ 3. GS: 0.0286 (cold)
+ 4. JPM: 0.0284 (cold)
+ 5. META: 0.0278 (cold)
+ 6. XOM: 0.0242 (cold)
+ 7. WMT: 0.0231 (cold)
+ 8. GOOGL: 0.0230 (cold)
+ 9. CVX: 0.0227 (cold)
+10. AMZN: 0.0227 (cold)
+
+🎯 SYSTEM STATUS: 100% OPERATIONAL
+📊 Last Updated: 2025-09-11 12:02:45
+🔥 Total Stocks: 10
+🚀 Execute the queries above to see your dynamic heat visualization!

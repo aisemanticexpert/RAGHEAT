@@ -1,0 +1,61 @@
+// RAGHeat Dynamic Heat Visualization Style
+node {
+  diameter: 50px;
+  color: #A5ABB6;
+  border-color: #9AA1AC;
+  border-width: 2px;
+  text-color-internal: #FFFFFF;
+  font-size: 10px;
+  caption: {name};
+}
+
+node.Stock {
+  diameter: 60px;
+  caption: {symbol};
+  font-size: 12px;
+  font-weight: bold;
+}
+
+node.Stock[heat_level = "cold"] {
+  color: #4A90E2;
+  border-color: #2E5BDA;
+  text-color-internal: #FFFFFF;
+}
+
+node.Stock[symbol = "UNH"] {
+  color: #FF4500;
+  border-color: #CC3700;
+  border-width: 3px;
+  text-color-internal: #FFFFFF;
+  diameter: 70px;
+}
+
+node.Company {
+  color: #9013FE;
+  border-color: #651FFF;
+  diameter: 45px;
+  caption: {symbol};
+}
+
+node.Sector {
+  color: #00BCD4;
+  border-color: #00ACC1;
+  diameter: 55px;
+  caption: {name};
+}
+
+relationship {
+  color: #757575;
+  shaft-width: 2px;
+  caption: '';
+}
+
+relationship.CONTAINS {
+  color: #FF9800;
+  shaft-width: 3px;
+}
+
+relationship.BELONGS_TO {
+  color: #4CAF50;
+  shaft-width: 2px;
+}

@@ -1,0 +1,110 @@
+// Neo4j Browser Style Configuration for RAGHeat Visualization
+// Copy and paste this into Neo4j Browser Style tab
+
+node {
+  diameter: 50px;
+  color: #A5ABB6;
+  border-color: #9AA1AC;
+  border-width: 2px;
+  text-color-internal: #FFFFFF;
+  font-size: 10px;
+}
+
+node.Stock {
+  diameter: 60px;
+  caption: {symbol};
+  font-size: 12px;
+}
+
+// Heat-based coloring - these will be applied based on heat_level property
+node.Stock[heat_level = "cold"] {
+  color: #87CEEB;
+  border-color: #4682B4;
+  text-color-internal: #000000;
+}
+
+node.Stock[heat_level = "cool"] {
+  color: #98FB98;
+  border-color: #32CD32;
+  text-color-internal: #000000;
+}
+
+node.Stock[heat_level = "warm"] {
+  color: #FFD700;
+  border-color: #FFA500;
+  text-color-internal: #000000;
+}
+
+node.Stock[heat_level = "hot"] {
+  color: #FF6347;
+  border-color: #FF4500;
+  text-color-internal: #FFFFFF;
+}
+
+node.Stock[heat_level = "extreme"] {
+  color: #DC143C;
+  border-color: #8B0000;
+  diameter: 80px;
+  text-color-internal: #FFFFFF;
+  font-size: 14px;
+}
+
+// Sector nodes
+node.Sector {
+  color: #9370DB;
+  border-color: #663399;
+  diameter: 40px;
+  caption: {name};
+}
+
+// Industry nodes  
+node.Industry {
+  color: #20B2AA;
+  border-color: #008B8B;
+  diameter: 35px;
+  caption: {name};
+}
+
+relationship {
+  color: #A5ABB6;
+  shaft-width: 1px;
+  font-size: 8px;
+  padding: 3px;
+  text-color-external: #000000;
+  text-color-internal: #FFFFFF;
+  caption: '<type>';
+}
+
+relationship.CORRELATES {
+  color: #4A90E2;
+  shaft-width: 2px;
+}
+
+relationship.SECTOR_OF {
+  color: #50E3C2;
+  shaft-width: 3px;
+}
+
+relationship.INDUSTRY_OF {
+  color: #7ED321;
+  shaft-width: 2px;
+}
+
+relationship.INFLUENCES {
+  color: #F5A623;
+  shaft-width: 2px;
+}
+
+// Heat flow relationships (when they exist)
+relationship.HEAT_FLOW {
+  color: #FF5722;
+  shaft-width: 3px;
+  caption: {intensity};
+}
+
+// Signal relationships (when they exist)  
+relationship.HAS_SIGNAL {
+  color: #9C27B0;
+  shaft-width: 2px;
+  caption: {direction};
+}
