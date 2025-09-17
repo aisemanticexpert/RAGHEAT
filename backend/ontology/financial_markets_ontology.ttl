@@ -1,0 +1,396 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fin: <http://ragheat.ai/ontology/finance#> .
+@prefix market: <http://ragheat.ai/ontology/market#> .
+@prefix trading: <http://ragheat.ai/ontology/trading#> .
+
+# Ontology Declaration
+fin: a owl:Ontology ;
+    rdfs:label "RAGHeat Financial Markets Ontology" ;
+    rdfs:comment "Comprehensive ontology for financial markets, trading signals, and heat propagation analysis" ;
+    owl:versionInfo "1.0" .
+
+# =============================================================================
+# LEVEL 1: TOP-LEVEL CLASSES (Market Structure)
+# =============================================================================
+
+fin:FinancialEntity a owl:Class ;
+    rdfs:label "Financial Entity" ;
+    rdfs:comment "Top-level class for all financial entities in the market ecosystem" .
+
+fin:Market a owl:Class ;
+    rdfs:subClassOf fin:FinancialEntity ;
+    rdfs:label "Financial Market" ;
+    rdfs:comment "A marketplace for trading financial instruments" .
+
+fin:MarketSegment a owl:Class ;
+    rdfs:subClassOf fin:Market ;
+    rdfs:label "Market Segment" ;
+    rdfs:comment "A specific segment or sector within a financial market" .
+
+# =============================================================================
+# LEVEL 2: MARKET CLASSIFICATIONS
+# =============================================================================
+
+fin:Sector a owl:Class ;
+    rdfs:subClassOf fin:MarketSegment ;
+    rdfs:label "Economic Sector" ;
+    rdfs:comment "Major economic sector classification (Technology, Healthcare, etc.)" .
+
+fin:Industry a owl:Class ;
+    rdfs:subClassOf fin:Sector ;
+    rdfs:label "Industry" ;
+    rdfs:comment "Specific industry within a sector" .
+
+# =============================================================================
+# LEVEL 3: FINANCIAL INSTRUMENTS
+# =============================================================================
+
+fin:FinancialInstrument a owl:Class ;
+    rdfs:subClassOf fin:FinancialEntity ;
+    rdfs:label "Financial Instrument" ;
+    rdfs:comment "Any tradable financial asset or contract" .
+
+fin:Security a owl:Class ;
+    rdfs:subClassOf fin:FinancialInstrument ;
+    rdfs:label "Security" ;
+    rdfs:comment "A tradable financial asset" .
+
+fin:Stock a owl:Class ;
+    rdfs:subClassOf fin:Security ;
+    rdfs:label "Stock" ;
+    rdfs:comment "Equity security representing ownership in a corporation" .
+
+fin:Option a owl:Class ;
+    rdfs:subClassOf fin:Security ;
+    rdfs:label "Option" ;
+    rdfs:comment "Derivative contract giving the right to buy/sell an underlying asset" .
+
+fin:Bond a owl:Class ;
+    rdfs:subClassOf fin:Security ;
+    rdfs:label "Bond" ;
+    rdfs:comment "Debt security representing a loan to a corporation or government" .
+
+# =============================================================================
+# LEVEL 4: CORPORATE ENTITIES
+# =============================================================================
+
+fin:Corporation a owl:Class ;
+    rdfs:subClassOf fin:FinancialEntity ;
+    rdfs:label "Corporation" ;
+    rdfs:comment "A legal entity that issues securities" .
+
+fin:PublicCompany a owl:Class ;
+    rdfs:subClassOf fin:Corporation ;
+    rdfs:label "Public Company" ;
+    rdfs:comment "A corporation whose shares are traded publicly" .
+
+# =============================================================================
+# LEVEL 5: TRADING SIGNALS & ANALYSIS
+# =============================================================================
+
+trading:TradingSignal a owl:Class ;
+    rdfs:label "Trading Signal" ;
+    rdfs:comment "A recommendation to buy, sell, or hold a financial instrument" .
+
+trading:BuySignal a owl:Class ;
+    rdfs:subClassOf trading:TradingSignal ;
+    rdfs:label "Buy Signal" ;
+    rdfs:comment "Recommendation to purchase a security" .
+
+trading:SellSignal a owl:Class ;
+    rdfs:subClassOf trading:TradingSignal ;
+    rdfs:label "Sell Signal" ;
+    rdfs:comment "Recommendation to sell a security" .
+
+trading:HoldSignal a owl:Class ;
+    rdfs:subClassOf trading:TradingSignal ;
+    rdfs:label "Hold Signal" ;
+    rdfs:comment "Recommendation to maintain current position" .
+
+# =============================================================================
+# HEAT PROPAGATION CONCEPTS
+# =============================================================================
+
+market:HeatNode a owl:Class ;
+    rdfs:label "Heat Node" ;
+    rdfs:comment "A node in the heat propagation network with thermal properties" .
+
+market:HeatFlow a owl:Class ;
+    rdfs:label "Heat Flow" ;
+    rdfs:comment "The flow of market heat between connected entities" .
+
+# =============================================================================
+# TECHNICAL INDICATORS
+# =============================================================================
+
+trading:TechnicalIndicator a owl:Class ;
+    rdfs:label "Technical Indicator" ;
+    rdfs:comment "Mathematical calculation based on price/volume data" .
+
+trading:MovingAverage a owl:Class ;
+    rdfs:subClassOf trading:TechnicalIndicator ;
+    rdfs:label "Moving Average" ;
+    rdfs:comment "Average price over a specific time period" .
+
+trading:RSI a owl:Class ;
+    rdfs:subClassOf trading:TechnicalIndicator ;
+    rdfs:label "Relative Strength Index" ;
+    rdfs:comment "Momentum oscillator measuring speed/change of price movements" .
+
+trading:BollingerBands a owl:Class ;
+    rdfs:subClassOf trading:TechnicalIndicator ;
+    rdfs:label "Bollinger Bands" ;
+    rdfs:comment "Volatility indicator using standard deviations" .
+
+# =============================================================================
+# OBJECT PROPERTIES (RELATIONSHIPS)
+# =============================================================================
+
+# Level 1-2 Relationships
+fin:belongsToSector a owl:ObjectProperty ;
+    rdfs:label "belongs to sector" ;
+    rdfs:domain fin:Stock ;
+    rdfs:range fin:Sector .
+
+fin:operatesInIndustry a owl:ObjectProperty ;
+    rdfs:label "operates in industry" ;
+    rdfs:domain fin:PublicCompany ;
+    rdfs:range fin:Industry .
+
+# Level 2-3 Relationships
+fin:issues a owl:ObjectProperty ;
+    rdfs:label "issues" ;
+    rdfs:domain fin:Corporation ;
+    rdfs:range fin:Security .
+
+fin:trades a owl:ObjectProperty ;
+    rdfs:label "trades" ;
+    rdfs:domain fin:Security ;
+    rdfs:range fin:Market .
+
+# Level 3-4 Correlation Relationships
+market:correlatesWith a owl:ObjectProperty ;
+    rdfs:label "correlates with" ;
+    rdfs:domain fin:Stock ;
+    rdfs:range fin:Stock ;
+    owl:propertyType owl:SymmetricProperty .
+
+market:hasStrongCorrelation a owl:ObjectProperty ;
+    rdfs:subPropertyOf market:correlatesWith ;
+    rdfs:label "has strong correlation" ;
+    rdfs:comment "Correlation coefficient > 0.7" .
+
+market:hasWeakCorrelation a owl:ObjectProperty ;
+    rdfs:subPropertyOf market:correlatesWith ;
+    rdfs:label "has weak correlation" ;
+    rdfs:comment "Correlation coefficient < 0.3" .
+
+# Level 4-5 Heat Propagation
+market:propagatesHeatTo a owl:ObjectProperty ;
+    rdfs:label "propagates heat to" ;
+    rdfs:domain market:HeatNode ;
+    rdfs:range market:HeatNode .
+
+market:hasHeatFlow a owl:ObjectProperty ;
+    rdfs:label "has heat flow" ;
+    rdfs:domain market:HeatNode ;
+    rdfs:range market:HeatFlow .
+
+# Level 5 Trading Signals
+trading:hasSignal a owl:ObjectProperty ;
+    rdfs:label "has trading signal" ;
+    rdfs:domain fin:Stock ;
+    rdfs:range trading:TradingSignal .
+
+trading:basedOnIndicator a owl:ObjectProperty ;
+    rdfs:label "based on indicator" ;
+    rdfs:domain trading:TradingSignal ;
+    rdfs:range trading:TechnicalIndicator .
+
+# =============================================================================
+# DATA PROPERTIES (ATTRIBUTES)
+# =============================================================================
+
+# Level 1: Basic Identifiers
+fin:symbol a owl:DatatypeProperty ;
+    rdfs:label "stock symbol" ;
+    rdfs:domain fin:Stock ;
+    rdfs:range xsd:string .
+
+fin:name a owl:DatatypeProperty ;
+    rdfs:label "company name" ;
+    rdfs:domain fin:Corporation ;
+    rdfs:range xsd:string .
+
+fin:exchange a owl:DatatypeProperty ;
+    rdfs:label "exchange" ;
+    rdfs:domain fin:Stock ;
+    rdfs:range xsd:string .
+
+# Level 2: Market Data
+market:price a owl:DatatypeProperty ;
+    rdfs:label "current price" ;
+    rdfs:domain fin:Stock ;
+    rdfs:range xsd:decimal .
+
+market:volume a owl:DatatypeProperty ;
+    rdfs:label "trading volume" ;
+    rdfs:domain fin:Stock ;
+    rdfs:range xsd:long .
+
+market:marketCap a owl:DatatypeProperty ;
+    rdfs:label "market capitalization" ;
+    rdfs:domain fin:Stock ;
+    rdfs:range xsd:decimal .
+
+# Level 3: Performance Metrics
+market:changePercent a owl:DatatypeProperty ;
+    rdfs:label "percentage change" ;
+    rdfs:domain fin:Stock ;
+    rdfs:range xsd:decimal .
+
+market:volatility a owl:DatatypeProperty ;
+    rdfs:label "volatility" ;
+    rdfs:domain fin:Stock ;
+    rdfs:range xsd:decimal .
+
+# Level 4: Heat Properties
+market:heatScore a owl:DatatypeProperty ;
+    rdfs:label "heat score" ;
+    rdfs:domain market:HeatNode ;
+    rdfs:range xsd:decimal .
+
+market:heatIntensity a owl:DatatypeProperty ;
+    rdfs:label "heat intensity" ;
+    rdfs:domain market:HeatNode ;
+    rdfs:range xsd:decimal .
+
+market:heatCapacity a owl:DatatypeProperty ;
+    rdfs:label "heat capacity" ;
+    rdfs:domain market:HeatNode ;
+    rdfs:range xsd:decimal .
+
+# Level 5: Signal Properties
+trading:signalStrength a owl:DatatypeProperty ;
+    rdfs:label "signal strength" ;
+    rdfs:domain trading:TradingSignal ;
+    rdfs:range xsd:decimal .
+
+trading:confidence a owl:DatatypeProperty ;
+    rdfs:label "confidence level" ;
+    rdfs:domain trading:TradingSignal ;
+    rdfs:range xsd:decimal .
+
+trading:timeHorizon a owl:DatatypeProperty ;
+    rdfs:label "time horizon" ;
+    rdfs:domain trading:TradingSignal ;
+    rdfs:range xsd:string .
+
+# Level 6: Technical Indicator Values
+trading:rsiValue a owl:DatatypeProperty ;
+    rdfs:label "RSI value" ;
+    rdfs:domain trading:RSI ;
+    rdfs:range xsd:decimal .
+
+trading:maValue a owl:DatatypeProperty ;
+    rdfs:label "moving average value" ;
+    rdfs:domain trading:MovingAverage ;
+    rdfs:range xsd:decimal .
+
+trading:upperBand a owl:DatatypeProperty ;
+    rdfs:label "upper Bollinger band" ;
+    rdfs:domain trading:BollingerBands ;
+    rdfs:range xsd:decimal .
+
+trading:lowerBand a owl:DatatypeProperty ;
+    rdfs:label "lower Bollinger band" ;
+    rdfs:domain trading:BollingerBands ;
+    rdfs:range xsd:decimal .
+
+# Level 7: Temporal Properties
+fin:timestamp a owl:DatatypeProperty ;
+    rdfs:label "timestamp" ;
+    rdfs:domain fin:FinancialEntity ;
+    rdfs:range xsd:dateTime .
+
+market:lastUpdated a owl:DatatypeProperty ;
+    rdfs:label "last updated" ;
+    rdfs:domain fin:Stock ;
+    rdfs:range xsd:dateTime .
+
+# =============================================================================
+# INDIVIDUALS (INSTANCES) - MAJOR SECTORS
+# =============================================================================
+
+market:Technology a fin:Sector ;
+    rdfs:label "Technology Sector" ;
+    fin:name "Technology" .
+
+market:Healthcare a fin:Sector ;
+    rdfs:label "Healthcare Sector" ;
+    fin:name "Healthcare" .
+
+market:Finance a fin:Sector ;
+    rdfs:label "Financial Services Sector" ;
+    fin:name "Finance" .
+
+market:Energy a fin:Sector ;
+    rdfs:label "Energy Sector" ;
+    fin:name "Energy" .
+
+market:ConsumerDiscretionary a fin:Sector ;
+    rdfs:label "Consumer Discretionary Sector" ;
+    fin:name "Consumer_Discretionary" .
+
+market:ConsumerStaples a fin:Sector ;
+    rdfs:label "Consumer Staples Sector" ;
+    fin:name "Consumer" .
+
+market:Retail a fin:Sector ;
+    rdfs:label "Retail Sector" ;
+    fin:name "Retail" .
+
+market:Entertainment a fin:Sector ;
+    rdfs:label "Entertainment Sector" ;
+    fin:name "Entertainment" .
+
+# =============================================================================
+# REASONING RULES & CONSTRAINTS
+# =============================================================================
+
+# Signal Generation Rules
+[] a owl:Class ;
+   owl:intersectionOf (
+     [ a owl:Restriction ;
+       owl:onProperty market:heatScore ;
+       owl:someValuesFrom [ a rdfs:Datatype ;
+                           owl:onDatatype xsd:decimal ;
+                           owl:withRestrictions ( [ xsd:minInclusive "80.0"^^xsd:decimal ] ) ] ]
+     [ a owl:Restriction ;
+       owl:onProperty trading:rsiValue ;
+       owl:someValuesFrom [ a rdfs:Datatype ;
+                           owl:onDatatype xsd:decimal ;
+                           owl:withRestrictions ( [ xsd:maxInclusive "30.0"^^xsd:decimal ] ) ] ]
+   ) ;
+   rdfs:subClassOf [ a owl:Restriction ;
+                    owl:onProperty trading:hasSignal ;
+                    owl:someValuesFrom trading:BuySignal ] .
+
+# Heat Propagation Rules  
+[] a owl:Class ;
+   owl:intersectionOf (
+     [ a owl:Restriction ;
+       owl:onProperty market:hasStrongCorrelation ;
+       owl:someValuesFrom fin:Stock ]
+     [ a owl:Restriction ;
+       owl:onProperty market:heatScore ;
+       owl:someValuesFrom [ a rdfs:Datatype ;
+                           owl:onDatatype xsd:decimal ;
+                           owl:withRestrictions ( [ xsd:minInclusive "70.0"^^xsd:decimal ] ) ] ]
+   ) ;
+   rdfs:subClassOf [ a owl:Restriction ;
+                    owl:onProperty market:propagatesHeatTo ;
+                    owl:allValuesFrom market:HeatNode ] .

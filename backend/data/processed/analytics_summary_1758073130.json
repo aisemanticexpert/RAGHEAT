@@ -1,0 +1,1871 @@
+{
+  "timestamp": "2025-09-16T21:38:50.460049",
+  "system_stats": {
+    "runtime_seconds": 288768.700812,
+    "data_points_generated": 217440,
+    "json_files_created": 50,
+    "real_data_downloads": 0,
+    "analytics_signals": 89854165,
+    "generation_rate": 0.752990193842241,
+    "active_symbols": 20,
+    "current_regime": "crash"
+  },
+  "signal_summary": {
+    "total_signals": 139,
+    "signal_types": {
+      "volume_anomaly": 31,
+      "high_volume": 28,
+      "rsi_overbought": 80
+    },
+    "average_strength": 0.761322000887432,
+    "average_confidence": 0.8554506046029725,
+    "timestamp": "2025-09-16T21:38:50.460134"
+  },
+  "active_signals": [
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "NVDA",
+      "timestamp": "2025-09-16T21:38:20.930083",
+      "strength": 0.9333166851674684,
+      "confidence": 1.0,
+      "description": "Volume anomaly detected: 5.05\u03c3 deviation",
+      "metadata": {
+        "zscore": 5.050556291274929,
+        "current_volume": 480571338,
+        "mean_volume": 114833245.89473684
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "NVDA",
+      "timestamp": "2025-09-16T21:38:20.930116",
+      "strength": 0.8630120727829738,
+      "confidence": 0.870019017143464,
+      "description": "High volume: 3.61x average",
+      "metadata": {
+        "volume_ratio": 3.610057051430392,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "META",
+      "timestamp": "2025-09-16T21:38:20.930285",
+      "strength": 0.839086916306746,
+      "confidence": 0.9135600449709333,
+      "description": "Volume anomaly detected: 3.65\u03c3 deviation",
+      "metadata": {
+        "zscore": 3.6542401798837334,
+        "current_volume": 285351429,
+        "mean_volume": 69497022.89473684
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "META",
+      "timestamp": "2025-09-16T21:38:20.930303",
+      "strength": 0.8556863626233148,
+      "confidence": 0.8513403149938915,
+      "description": "High volume: 3.55x average",
+      "metadata": {
+        "volume_ratio": 3.5540209449816746,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "NFLX",
+      "timestamp": "2025-09-16T21:38:20.930459",
+      "strength": 0.6593952613721911,
+      "confidence": 0.5278286112926973,
+      "description": "High volume: 2.58x average",
+      "metadata": {
+        "volume_ratio": 2.583485833878092,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "JNJ",
+      "timestamp": "2025-09-16T21:38:20.930883",
+      "strength": 0.8612843012483066,
+      "confidence": 0.9737233151681262,
+      "description": "Volume anomaly detected: 3.89\u03c3 deviation",
+      "metadata": {
+        "zscore": 3.8948932606725046,
+        "current_volume": 84233312,
+        "mean_volume": 27774969.210526317
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "JNJ",
+      "timestamp": "2025-09-16T21:38:20.930900",
+      "strength": 0.7046396212213702,
+      "confidence": 0.584304255926706,
+      "description": "High volume: 2.75x average",
+      "metadata": {
+        "volume_ratio": 2.752912767780118,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "CVX",
+      "timestamp": "2025-09-16T21:38:20.931742",
+      "strength": 0.9869995883537437,
+      "confidence": 1.0,
+      "description": "Volume anomaly detected: 7.54\u03c3 deviation",
+      "metadata": {
+        "zscore": 7.544100019987824,
+        "current_volume": 190467503,
+        "mean_volume": 30989337.157894738
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "CVX",
+      "timestamp": "2025-09-16T21:38:20.931774",
+      "strength": 0.9598652739068118,
+      "confidence": 1.0,
+      "description": "High volume: 4.89x average",
+      "metadata": {
+        "volume_ratio": 4.8883890651362565,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "HD",
+      "timestamp": "2025-09-16T21:38:20.932087",
+      "strength": 0.5043424667178229,
+      "confidence": 0.3700753171222117,
+      "description": "High volume: 2.11x average",
+      "metadata": {
+        "volume_ratio": 2.110225951366635,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "PG",
+      "timestamp": "2025-09-16T21:38:20.932245",
+      "strength": 0.47809840385710217,
+      "confidence": 0.3470108737935373,
+      "description": "High volume: 2.04x average",
+      "metadata": {
+        "volume_ratio": 2.041032621380612,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "DIS",
+      "timestamp": "2025-09-16T21:38:20.932534",
+      "strength": 0.5324253920070656,
+      "confidence": 0.39568268583151234,
+      "description": "High volume: 2.19x average",
+      "metadata": {
+        "volume_ratio": 2.187048057494537,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "V",
+      "timestamp": "2025-09-16T21:38:20.932682",
+      "strength": 0.8705153526876116,
+      "confidence": 1.0,
+      "description": "Volume anomaly detected: 4.01\u03c3 deviation",
+      "metadata": {
+        "zscore": 4.005610411521033,
+        "current_volume": 57952579,
+        "mean_volume": 17926238.47368421
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "V",
+      "timestamp": "2025-09-16T21:38:20.932699",
+      "strength": 0.7416252529370937,
+      "confidence": 0.6360543235387469,
+      "description": "High volume: 2.91x average",
+      "metadata": {
+        "volume_ratio": 2.9081629706162406,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "NVDA",
+      "timestamp": "2025-09-16T21:38:21.935383",
+      "strength": 0.5088725309114909,
+      "confidence": 0.374138092454416,
+      "description": "High volume: 2.12x average",
+      "metadata": {
+        "volume_ratio": 2.122414277363248,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "BAC",
+      "timestamp": "2025-09-16T21:38:21.935964",
+      "strength": 0.5800857301547191,
+      "confidence": 0.4417279377047986,
+      "description": "High volume: 2.33x average",
+      "metadata": {
+        "volume_ratio": 2.325183813114396,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "NVDA",
+      "timestamp": "2025-09-16T21:38:22.940692",
+      "strength": 0.5601877296472776,
+      "confidence": 0.4220711516474518,
+      "description": "High volume: 2.27x average",
+      "metadata": {
+        "volume_ratio": 2.2662134549423554,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "WMT",
+      "timestamp": "2025-09-16T21:38:22.941945",
+      "strength": 0.7690534783496574,
+      "confidence": 0.7635051558100412,
+      "description": "Volume anomaly detected: 3.05\u03c3 deviation",
+      "metadata": {
+        "zscore": 3.0540206232401648,
+        "current_volume": 130503979,
+        "mean_volume": 44924472.578947365
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "WMT",
+      "timestamp": "2025-09-16T21:38:22.941967",
+      "strength": 0.6784125021463604,
+      "confidence": 0.5507780082487539,
+      "description": "High volume: 2.65x average",
+      "metadata": {
+        "volume_ratio": 2.6523340247462617,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "HD",
+      "timestamp": "2025-09-16T21:38:22.942128",
+      "strength": 0.6931227694471342,
+      "confidence": 0.6404557981103874,
+      "description": "Volume anomaly detected: 2.56\u03c3 deviation",
+      "metadata": {
+        "zscore": 2.5618231924415498,
+        "current_volume": 56436433,
+        "mean_volume": 23965227.36842105
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "HD",
+      "timestamp": "2025-09-16T21:38:22.942145",
+      "strength": 0.5390085313037473,
+      "confidence": 0.40183804682907676,
+      "description": "High volume: 2.21x average",
+      "metadata": {
+        "volume_ratio": 2.2055141404872303,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "KO",
+      "timestamp": "2025-09-16T21:38:22.942435",
+      "strength": 0.46981411822860103,
+      "confidence": 0.33988785207036426,
+      "description": "High volume: 2.02x average",
+      "metadata": {
+        "volume_ratio": 2.0196635562110927,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "MSFT",
+      "timestamp": "2025-09-16T21:38:23.954669",
+      "strength": 0.6877916869385757,
+      "confidence": 0.6328146090911573,
+      "description": "Volume anomaly detected: 2.53\u03c3 deviation",
+      "metadata": {
+        "zscore": 2.531258436364629,
+        "current_volume": 316745359,
+        "mean_volume": 130543192.63157895
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "MSFT",
+      "timestamp": "2025-09-16T21:38:23.954716",
+      "strength": 0.5597163448431614,
+      "confidence": 0.4216133544897927,
+      "description": "High volume: 2.26x average",
+      "metadata": {
+        "volume_ratio": 2.264840063469378,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "NFLX",
+      "timestamp": "2025-09-16T21:38:23.955962",
+      "strength": 0.5289014164925819,
+      "confidence": 0.3924124497065904,
+      "description": "High volume: 2.18x average",
+      "metadata": {
+        "volume_ratio": 2.177237349119771,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "PG",
+      "timestamp": "2025-09-16T21:38:23.958282",
+      "strength": 0.7119103847288968,
+      "confidence": 0.6682851052847941,
+      "description": "Volume anomaly detected: 2.67\u03c3 deviation",
+      "metadata": {
+        "zscore": 2.6731404211391765,
+        "current_volume": 66761501,
+        "mean_volume": 29390110.842105262
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "PG",
+      "timestamp": "2025-09-16T21:38:23.958322",
+      "strength": 0.5138060765739202,
+      "confidence": 0.37859159175924706,
+      "description": "High volume: 2.14x average",
+      "metadata": {
+        "volume_ratio": 2.135774775277741,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "JPM",
+      "timestamp": "2025-09-16T21:38:25.972635",
+      "strength": 0.9159345266523771,
+      "confidence": 1.0,
+      "description": "Volume anomaly detected: 4.69\u03c3 deviation",
+      "metadata": {
+        "zscore": 4.689547269307394,
+        "current_volume": 179276489,
+        "mean_volume": 54795172.84210526
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "JPM",
+      "timestamp": "2025-09-16T21:38:25.972668",
+      "strength": 0.748271605197733,
+      "confidence": 0.6460107389425778,
+      "description": "High volume: 2.94x average",
+      "metadata": {
+        "volume_ratio": 2.9380322168277333,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "PG",
+      "timestamp": "2025-09-16T21:38:25.973752",
+      "strength": 0.7496638521726574,
+      "confidence": 0.7291403842409979,
+      "description": "Volume anomaly detected: 2.92\u03c3 deviation",
+      "metadata": {
+        "zscore": 2.9165615369639917,
+        "current_volume": 77635832,
+        "mean_volume": 35308168.7368421
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "PG",
+      "timestamp": "2025-09-16T21:38:25.973770",
+      "strength": 0.4908892918577366,
+      "confidence": 0.35815418897061885,
+      "description": "High volume: 2.07x average",
+      "metadata": {
+        "volume_ratio": 2.0744625669118566,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "AAPL",
+      "timestamp": "2025-09-16T21:38:27.063089",
+      "strength": 0.8046238617495967,
+      "confidence": 0.8336928178150034,
+      "description": "Volume anomaly detected: 3.33\u03c3 deviation",
+      "metadata": {
+        "zscore": 3.3347712712600135,
+        "current_volume": 739007215,
+        "mean_volume": 336870858.2105263
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "AAPL",
+      "timestamp": "2025-09-16T21:38:27.063121",
+      "strength": 0.4892614060018555,
+      "confidence": 0.35672589126319404,
+      "description": "High volume: 2.07x average",
+      "metadata": {
+        "volume_ratio": 2.070177673789582,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "AMZN",
+      "timestamp": "2025-09-16T21:38:27.063559",
+      "strength": 0.9938039323716175,
+      "confidence": 1.0,
+      "description": "Volume anomaly detected: 8.66\u03c3 deviation",
+      "metadata": {
+        "zscore": 8.66082716931909,
+        "current_volume": 457204149,
+        "mean_volume": 119217557.05263157
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "AMZN",
+      "timestamp": "2025-09-16T21:38:27.063577",
+      "strength": 0.8272794237776264,
+      "confidence": 0.7863027878767604,
+      "description": "High volume: 3.36x average",
+      "metadata": {
+        "volume_ratio": 3.3589083636302814,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "JNJ",
+      "timestamp": "2025-09-16T21:38:28.069778",
+      "strength": 0.8584737400840133,
+      "confidence": 0.965634591636781,
+      "description": "Volume anomaly detected: 3.86\u03c3 deviation",
+      "metadata": {
+        "zscore": 3.862538366547124,
+        "current_volume": 102814299,
+        "mean_volume": 48061255.0
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "JNJ",
+      "timestamp": "2025-09-16T21:38:28.069819",
+      "strength": 0.47148145194851926,
+      "confidence": 0.34131568746292507,
+      "description": "High volume: 2.02x average",
+      "metadata": {
+        "volume_ratio": 2.023947062388775,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "V",
+      "timestamp": "2025-09-16T21:38:30.082642",
+      "strength": 0.693974329172159,
+      "confidence": 0.6416863991616288,
+      "description": "Volume anomaly detected: 2.57\u03c3 deviation",
+      "metadata": {
+        "zscore": 2.5667455966465154,
+        "current_volume": 56704120,
+        "mean_volume": 33796174.2631579
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "AAPL",
+      "timestamp": "2025-09-16T21:38:32.303179",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "GOOGL",
+      "timestamp": "2025-09-16T21:38:32.303430",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "MSFT",
+      "timestamp": "2025-09-16T21:38:32.303590",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "AMZN",
+      "timestamp": "2025-09-16T21:38:32.303737",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "TSLA",
+      "timestamp": "2025-09-16T21:38:32.303879",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "NVDA",
+      "timestamp": "2025-09-16T21:38:32.304017",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "META",
+      "timestamp": "2025-09-16T21:38:32.304154",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "NFLX",
+      "timestamp": "2025-09-16T21:38:32.304287",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "JPM",
+      "timestamp": "2025-09-16T21:38:32.304418",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "BAC",
+      "timestamp": "2025-09-16T21:38:32.304548",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "JNJ",
+      "timestamp": "2025-09-16T21:38:32.304678",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "PFE",
+      "timestamp": "2025-09-16T21:38:32.304807",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "XOM",
+      "timestamp": "2025-09-16T21:38:32.304936",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "CVX",
+      "timestamp": "2025-09-16T21:38:32.305065",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "WMT",
+      "timestamp": "2025-09-16T21:38:32.305192",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "HD",
+      "timestamp": "2025-09-16T21:38:32.305320",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "PG",
+      "timestamp": "2025-09-16T21:38:32.305449",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "KO",
+      "timestamp": "2025-09-16T21:38:32.305576",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "DIS",
+      "timestamp": "2025-09-16T21:38:32.305703",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "V",
+      "timestamp": "2025-09-16T21:38:32.305831",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "GOOGL",
+      "timestamp": "2025-09-16T21:38:35.343163",
+      "strength": 0.9625392064407686,
+      "confidence": 1.0,
+      "description": "Volume anomaly detected: 5.94\u03c3 deviation",
+      "metadata": {
+        "zscore": 5.938049319440558,
+        "current_volume": 338451069,
+        "mean_volume": 117812383.4736842
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "GOOGL",
+      "timestamp": "2025-09-16T21:38:35.343192",
+      "strength": 0.6714675973717563,
+      "confidence": 0.5422739497049597,
+      "description": "High volume: 2.63x average",
+      "metadata": {
+        "volume_ratio": 2.626821849114879,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "NFLX",
+      "timestamp": "2025-09-16T21:38:35.344041",
+      "strength": 0.6856832048811284,
+      "confidence": 0.629821816681721,
+      "description": "Volume anomaly detected: 2.52\u03c3 deviation",
+      "metadata": {
+        "zscore": 2.519287266726884,
+        "current_volume": 77438382,
+        "mean_volume": 36422921.7368421
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "NFLX",
+      "timestamp": "2025-09-16T21:38:35.344060",
+      "strength": 0.46712056883129094,
+      "confidence": 0.3375872571566143,
+      "description": "High volume: 2.01x average",
+      "metadata": {
+        "volume_ratio": 2.012761771469843,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "V",
+      "timestamp": "2025-09-16T21:38:35.345983",
+      "strength": 0.7389251119565736,
+      "confidence": 0.7110806835134593,
+      "description": "Volume anomaly detected: 2.84\u03c3 deviation",
+      "metadata": {
+        "zscore": 2.8443227340538373,
+        "current_volume": 56841070,
+        "mean_volume": 34260595.05263158
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "AMZN",
+      "timestamp": "2025-09-16T21:38:36.349629",
+      "strength": 0.7025325916442384,
+      "confidence": 0.6542128177517591,
+      "description": "Volume anomaly detected: 2.62\u03c3 deviation",
+      "metadata": {
+        "zscore": 2.6168512710070364,
+        "current_volume": 428174498,
+        "mean_volume": 180628786.84210527
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "AMZN",
+      "timestamp": "2025-09-16T21:38:36.349672",
+      "strength": 0.5435816488638949,
+      "confidence": 0.4061503051444924,
+      "description": "High volume: 2.22x average",
+      "metadata": {
+        "volume_ratio": 2.2184509154334773,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "V",
+      "timestamp": "2025-09-16T21:38:37.358611",
+      "strength": 0.9845182815602477,
+      "confidence": 1.0,
+      "description": "Volume anomaly detected: 7.28\u03c3 deviation",
+      "metadata": {
+        "zscore": 7.280207418052279,
+        "current_volume": 101497317,
+        "mean_volume": 35862438.84210526
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "V",
+      "timestamp": "2025-09-16T21:38:37.358646",
+      "strength": 0.6620500659527003,
+      "confidence": 0.5309697794963757,
+      "description": "High volume: 2.59x average",
+      "metadata": {
+        "volume_ratio": 2.592909338489127,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "AAPL",
+      "timestamp": "2025-09-16T21:38:38.361159",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "GOOGL",
+      "timestamp": "2025-09-16T21:38:38.361465",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "MSFT",
+      "timestamp": "2025-09-16T21:38:38.361637",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "AMZN",
+      "timestamp": "2025-09-16T21:38:38.361790",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "TSLA",
+      "timestamp": "2025-09-16T21:38:38.361967",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "NVDA",
+      "timestamp": "2025-09-16T21:38:38.362131",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "META",
+      "timestamp": "2025-09-16T21:38:38.362272",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "NFLX",
+      "timestamp": "2025-09-16T21:38:38.362417",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "JPM",
+      "timestamp": "2025-09-16T21:38:38.362552",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "BAC",
+      "timestamp": "2025-09-16T21:38:38.362686",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "JNJ",
+      "timestamp": "2025-09-16T21:38:38.362828",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "PFE",
+      "timestamp": "2025-09-16T21:38:38.362960",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "XOM",
+      "timestamp": "2025-09-16T21:38:38.363092",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "CVX",
+      "timestamp": "2025-09-16T21:38:38.363223",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "WMT",
+      "timestamp": "2025-09-16T21:38:38.363353",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "HD",
+      "timestamp": "2025-09-16T21:38:38.363485",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "PG",
+      "timestamp": "2025-09-16T21:38:38.363619",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "KO",
+      "timestamp": "2025-09-16T21:38:38.363753",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "DIS",
+      "timestamp": "2025-09-16T21:38:38.363882",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "V",
+      "timestamp": "2025-09-16T21:38:38.364013",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "BAC",
+      "timestamp": "2025-09-16T21:38:38.367410",
+      "strength": 0.7924993982608188,
+      "confidence": 0.8085869989353833,
+      "description": "Volume anomaly detected: 3.23\u03c3 deviation",
+      "metadata": {
+        "zscore": 3.2343479957415333,
+        "current_volume": 414826453,
+        "mean_volume": 202044617.63157895
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "PFE",
+      "timestamp": "2025-09-16T21:38:40.378074",
+      "strength": 0.6910497302531066,
+      "confidence": 0.6374716622379727,
+      "description": "Volume anomaly detected: 2.55\u03c3 deviation",
+      "metadata": {
+        "zscore": 2.5498866489518908,
+        "current_volume": 230232984,
+        "mean_volume": 144954191.21052632
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "JPM",
+      "timestamp": "2025-09-16T21:38:41.397168",
+      "strength": 0.7540014784786965,
+      "confidence": 0.7366235587544145,
+      "description": "Volume anomaly detected: 2.95\u03c3 deviation",
+      "metadata": {
+        "zscore": 2.946494235017658,
+        "current_volume": 84869401,
+        "mean_volume": 49158619.526315786
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "JNJ",
+      "timestamp": "2025-09-16T21:38:43.414624",
+      "strength": 0.8246323695442535,
+      "confidence": 0.8783434831778778,
+      "description": "Volume anomaly detected: 3.51\u03c3 deviation",
+      "metadata": {
+        "zscore": 3.513373932711511,
+        "current_volume": 75481383,
+        "mean_volume": 43590221.84210526
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "AAPL",
+      "timestamp": "2025-09-16T21:38:44.419465",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "GOOGL",
+      "timestamp": "2025-09-16T21:38:44.419705",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "MSFT",
+      "timestamp": "2025-09-16T21:38:44.419862",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "AMZN",
+      "timestamp": "2025-09-16T21:38:44.420008",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "TSLA",
+      "timestamp": "2025-09-16T21:38:44.420148",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "NVDA",
+      "timestamp": "2025-09-16T21:38:44.420287",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "META",
+      "timestamp": "2025-09-16T21:38:44.420422",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "NFLX",
+      "timestamp": "2025-09-16T21:38:44.420554",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "JPM",
+      "timestamp": "2025-09-16T21:38:44.420685",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "BAC",
+      "timestamp": "2025-09-16T21:38:44.420816",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "JNJ",
+      "timestamp": "2025-09-16T21:38:44.420943",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "PFE",
+      "timestamp": "2025-09-16T21:38:44.421073",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "XOM",
+      "timestamp": "2025-09-16T21:38:44.421202",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "CVX",
+      "timestamp": "2025-09-16T21:38:44.421330",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "WMT",
+      "timestamp": "2025-09-16T21:38:44.421458",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "HD",
+      "timestamp": "2025-09-16T21:38:44.421586",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "PG",
+      "timestamp": "2025-09-16T21:38:44.421714",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "KO",
+      "timestamp": "2025-09-16T21:38:44.421841",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "DIS",
+      "timestamp": "2025-09-16T21:38:44.421967",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "V",
+      "timestamp": "2025-09-16T21:38:44.422093",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "AAPL",
+      "timestamp": "2025-09-16T21:38:44.423738",
+      "strength": 0.8259512728787097,
+      "confidence": 0.8814454030091394,
+      "description": "Volume anomaly detected: 3.53\u03c3 deviation",
+      "metadata": {
+        "zscore": 3.5257816120365577,
+        "current_volume": 825311097,
+        "mean_volume": 408270446.4736842
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "JNJ",
+      "timestamp": "2025-09-16T21:38:44.425055",
+      "strength": 0.7000607396799464,
+      "confidence": 0.6505647262770295,
+      "description": "Volume anomaly detected: 2.60\u03c3 deviation",
+      "metadata": {
+        "zscore": 2.602258905108118,
+        "current_volume": 77500773,
+        "mean_volume": 45882081.368421055
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "V",
+      "timestamp": "2025-09-16T21:38:44.426201",
+      "strength": 0.7206190350858197,
+      "confidence": 0.6816986599177737,
+      "description": "Volume anomaly detected: 2.73\u03c3 deviation",
+      "metadata": {
+        "zscore": 2.7267946396710947,
+        "current_volume": 86478288,
+        "mean_volume": 40174276.578947365
+      }
+    },
+    {
+      "signal_type": "high_volume",
+      "symbol": "V",
+      "timestamp": "2025-09-16T21:38:44.426219",
+      "strength": 0.4758792812567938,
+      "confidence": 0.3450957256601592,
+      "description": "High volume: 2.04x average",
+      "metadata": {
+        "volume_ratio": 2.0352871769804777,
+        "interpretation": "increased_interest"
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "GOOGL",
+      "timestamp": "2025-09-16T21:38:47.441667",
+      "strength": -0.7180544899724072,
+      "confidence": 0.6777127476461973,
+      "description": "Volume anomaly detected: -2.71\u03c3 deviation",
+      "metadata": {
+        "zscore": -2.710850990584789,
+        "current_volume": 47710423,
+        "mean_volume": 135108433.15789473
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "PG",
+      "timestamp": "2025-09-16T21:38:47.444137",
+      "strength": 0.6883164582538125,
+      "confidence": 0.6335620308969275,
+      "description": "Volume anomaly detected: 2.53\u03c3 deviation",
+      "metadata": {
+        "zscore": 2.53424812358771,
+        "current_volume": 61015284,
+        "mean_volume": 38680672.631578945
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "GOOGL",
+      "timestamp": "2025-09-16T21:38:48.448218",
+      "strength": 0.7759356828650833,
+      "confidence": 0.7763060878446275,
+      "description": "Volume anomaly detected: 3.11\u03c3 deviation",
+      "metadata": {
+        "zscore": 3.10522435137851,
+        "current_volume": 245381893,
+        "mean_volume": 129527348.78947368
+      }
+    },
+    {
+      "signal_type": "volume_anomaly",
+      "symbol": "META",
+      "timestamp": "2025-09-16T21:38:49.453752",
+      "strength": 0.8037062373795928,
+      "confidence": 0.8317449456471101,
+      "description": "Volume anomaly detected: 3.33\u03c3 deviation",
+      "metadata": {
+        "zscore": 3.3269797825884404,
+        "current_volume": 262293217,
+        "mean_volume": 127345200.94736843
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "AAPL",
+      "timestamp": "2025-09-16T21:38:50.456217",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "GOOGL",
+      "timestamp": "2025-09-16T21:38:50.456842",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "MSFT",
+      "timestamp": "2025-09-16T21:38:50.457086",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "AMZN",
+      "timestamp": "2025-09-16T21:38:50.457247",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "TSLA",
+      "timestamp": "2025-09-16T21:38:50.457393",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "NVDA",
+      "timestamp": "2025-09-16T21:38:50.457535",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "META",
+      "timestamp": "2025-09-16T21:38:50.457672",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "NFLX",
+      "timestamp": "2025-09-16T21:38:50.457806",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "JPM",
+      "timestamp": "2025-09-16T21:38:50.457938",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "BAC",
+      "timestamp": "2025-09-16T21:38:50.458142",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "JNJ",
+      "timestamp": "2025-09-16T21:38:50.458326",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "PFE",
+      "timestamp": "2025-09-16T21:38:50.458481",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "XOM",
+      "timestamp": "2025-09-16T21:38:50.458637",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "CVX",
+      "timestamp": "2025-09-16T21:38:50.458781",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "WMT",
+      "timestamp": "2025-09-16T21:38:50.458919",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "HD",
+      "timestamp": "2025-09-16T21:38:50.459056",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "PG",
+      "timestamp": "2025-09-16T21:38:50.459191",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "KO",
+      "timestamp": "2025-09-16T21:38:50.459325",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "DIS",
+      "timestamp": "2025-09-16T21:38:50.459457",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    },
+    {
+      "signal_type": "rsi_overbought",
+      "symbol": "V",
+      "timestamp": "2025-09-16T21:38:50.459589",
+      "strength": -0.8,
+      "confidence": 1.0,
+      "description": "RSI overbought: 100.0",
+      "metadata": {
+        "rsi": 100.0
+      }
+    }
+  ],
+  "heat_analysis": {
+    "AAPL": {
+      "symbol": "AAPL",
+      "current_heat": 79.86,
+      "heat_trend": "stable",
+      "heat_velocity": -0.0020000000000110485,
+      "propagation_strength": 0.7986,
+      "influenced_symbols": [
+        "GOOGL",
+        "MSFT",
+        "AMZN",
+        "NVDA"
+      ],
+      "analysis_timestamp": "2025-09-16T21:38:50.456825"
+    },
+    "GOOGL": {
+      "symbol": "GOOGL",
+      "current_heat": 72.47,
+      "heat_trend": "rising",
+      "heat_velocity": 1.0709999999999944,
+      "propagation_strength": 0.7247,
+      "influenced_symbols": [
+        "AAPL",
+        "MSFT",
+        "AMZN",
+        "NVDA"
+      ],
+      "analysis_timestamp": "2025-09-16T21:38:50.457072"
+    },
+    "MSFT": {
+      "symbol": "MSFT",
+      "current_heat": 76.26,
+      "heat_trend": "rising",
+      "heat_velocity": 1.1039999999999954,
+      "propagation_strength": 0.7626000000000001,
+      "influenced_symbols": [
+        "AAPL",
+        "GOOGL",
+        "AMZN",
+        "NVDA"
+      ],
+      "analysis_timestamp": "2025-09-16T21:38:50.457236"
+    },
+    "AMZN": {
+      "symbol": "AMZN",
+      "current_heat": 75.29,
+      "heat_trend": "stable",
+      "heat_velocity": 0.6769999999999907,
+      "propagation_strength": 0.7529,
+      "influenced_symbols": [
+        "AAPL",
+        "GOOGL",
+        "MSFT",
+        "NVDA"
+      ],
+      "analysis_timestamp": "2025-09-16T21:38:50.457383"
+    },
+    "TSLA": {
+      "symbol": "TSLA",
+      "current_heat": 42.9,
+      "heat_trend": "stable",
+      "heat_velocity": -0.018000000000007215,
+      "propagation_strength": 0.429,
+      "influenced_symbols": [],
+      "analysis_timestamp": "2025-09-16T21:38:50.457524"
+    },
+    "NVDA": {
+      "symbol": "NVDA",
+      "current_heat": 73.82,
+      "heat_trend": "rising",
+      "heat_velocity": 2.4129999999999994,
+      "propagation_strength": 0.7382,
+      "influenced_symbols": [
+        "AAPL",
+        "GOOGL",
+        "MSFT",
+        "AMZN"
+      ],
+      "analysis_timestamp": "2025-09-16T21:38:50.457662"
+    },
+    "META": {
+      "symbol": "META",
+      "current_heat": 47.44,
+      "heat_trend": "falling",
+      "heat_velocity": -2.275000000000014,
+      "propagation_strength": 0.4744,
+      "influenced_symbols": [],
+      "analysis_timestamp": "2025-09-16T21:38:50.457796"
+    },
+    "NFLX": {
+      "symbol": "NFLX",
+      "current_heat": 48.31,
+      "heat_trend": "stable",
+      "heat_velocity": -0.9120000000000069,
+      "propagation_strength": 0.48310000000000003,
+      "influenced_symbols": [],
+      "analysis_timestamp": "2025-09-16T21:38:50.457929"
+    },
+    "JPM": {
+      "symbol": "JPM",
+      "current_heat": 44.23,
+      "heat_trend": "stable",
+      "heat_velocity": -0.09900000000000705,
+      "propagation_strength": 0.44229999999999997,
+      "influenced_symbols": [],
+      "analysis_timestamp": "2025-09-16T21:38:50.458126"
+    },
+    "BAC": {
+      "symbol": "BAC",
+      "current_heat": 42.82,
+      "heat_trend": "stable",
+      "heat_velocity": -0.43700000000000555,
+      "propagation_strength": 0.4282,
+      "influenced_symbols": [],
+      "analysis_timestamp": "2025-09-16T21:38:50.458315"
+    },
+    "JNJ": {
+      "symbol": "JNJ",
+      "current_heat": 35.48,
+      "heat_trend": "stable",
+      "heat_velocity": -0.04400000000000289,
+      "propagation_strength": 0.35479999999999995,
+      "influenced_symbols": [],
+      "analysis_timestamp": "2025-09-16T21:38:50.458471"
+    },
+    "PFE": {
+      "symbol": "PFE",
+      "current_heat": 37.8,
+      "heat_trend": "stable",
+      "heat_velocity": -0.8480000000000064,
+      "propagation_strength": 0.37799999999999995,
+      "influenced_symbols": [],
+      "analysis_timestamp": "2025-09-16T21:38:50.458626"
+    },
+    "XOM": {
+      "symbol": "XOM",
+      "current_heat": 49.5,
+      "heat_trend": "stable",
+      "heat_velocity": 0.4899999999999926,
+      "propagation_strength": 0.495,
+      "influenced_symbols": [],
+      "analysis_timestamp": "2025-09-16T21:38:50.458771"
+    },
+    "CVX": {
+      "symbol": "CVX",
+      "current_heat": 46.49,
+      "heat_trend": "stable",
+      "heat_velocity": -0.850000000000005,
+      "propagation_strength": 0.46490000000000004,
+      "influenced_symbols": [],
+      "analysis_timestamp": "2025-09-16T21:38:50.458909"
+    },
+    "WMT": {
+      "symbol": "WMT",
+      "current_heat": 44.5,
+      "heat_trend": "stable",
+      "heat_velocity": -0.6480000000000042,
+      "propagation_strength": 0.445,
+      "influenced_symbols": [],
+      "analysis_timestamp": "2025-09-16T21:38:50.459046"
+    },
+    "HD": {
+      "symbol": "HD",
+      "current_heat": 43.68,
+      "heat_trend": "stable",
+      "heat_velocity": -0.633000000000003,
+      "propagation_strength": 0.4368,
+      "influenced_symbols": [],
+      "analysis_timestamp": "2025-09-16T21:38:50.459182"
+    },
+    "PG": {
+      "symbol": "PG",
+      "current_heat": 45.73,
+      "heat_trend": "stable",
+      "heat_velocity": -0.5860000000000084,
+      "propagation_strength": 0.4573,
+      "influenced_symbols": [],
+      "analysis_timestamp": "2025-09-16T21:38:50.459315"
+    },
+    "KO": {
+      "symbol": "KO",
+      "current_heat": 40.62,
+      "heat_trend": "falling",
+      "heat_velocity": -1.0680000000000054,
+      "propagation_strength": 0.40619999999999995,
+      "influenced_symbols": [],
+      "analysis_timestamp": "2025-09-16T21:38:50.459447"
+    },
+    "DIS": {
+      "symbol": "DIS",
+      "current_heat": 41.82,
+      "heat_trend": "stable",
+      "heat_velocity": -0.5170000000000026,
+      "propagation_strength": 0.4182,
+      "influenced_symbols": [],
+      "analysis_timestamp": "2025-09-16T21:38:50.459579"
+    },
+    "V": {
+      "symbol": "V",
+      "current_heat": 45.68,
+      "heat_trend": "stable",
+      "heat_velocity": -0.3010000000000057,
+      "propagation_strength": 0.4568,
+      "influenced_symbols": [],
+      "analysis_timestamp": "2025-09-16T21:38:50.459710"
+    }
+  },
+  "analytics_status": {
+    "tracked_symbols": 20,
+    "data_points_per_symbol": {
+      "AAPL": 100,
+      "GOOGL": 100,
+      "MSFT": 100,
+      "AMZN": 100,
+      "TSLA": 100
+    },
+    "active_signals": 139,
+    "signal_history_size": 500,
+    "heat_analysis_cache_size": 20,
+    "last_analysis_time": "2025-09-16T21:38:50.459720",
+    "analysis_intervals": {
+      "fast": 1.0,
+      "medium": 5.0,
+      "slow": 30.0
+    }
+  }
+}

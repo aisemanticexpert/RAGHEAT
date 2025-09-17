@@ -1,0 +1,42 @@
+# Kafka Producer Service Dockerfile
+FROM python:3.11-slim
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create non-root user
+RUN groupadd -r kafka && useradd -r -g kafka kafka
+
+# Set working directory
+WORKDIR /app
+
+# Copy requirements
+COPY requirements.txt requirements-advanced.txt ./
+
+# Install Python dependencies
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements-advanced.txt
+
+# Copy application code
+COPY . .
+
+# Create necessary directories and set permissions
+RUN mkdir -p logs && \
+    chown -R kafka:kafka /app
+
+# Switch to non-root user
+USER kafka
+
+# Set environment variables
+ENV PYTHONPATH=/app
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Health check
+HEALTHCHECK --interval=60s --timeout=10s --start-period=30s --retries=3 \
+    CMD python -c "import streaming.intelligent_kafka_producer; print('Kafka producer healthy')" || exit 1
+
+# Run Kafka producer
+CMD ["python", "streaming/intelligent_kafka_producer.py"]

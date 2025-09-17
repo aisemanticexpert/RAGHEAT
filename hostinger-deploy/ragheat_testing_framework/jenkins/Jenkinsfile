@@ -1,0 +1,358 @@
+pipeline {
+    agent any
+    
+    environment {
+        DOCKER_COMPOSE_FILE = 'docker-compose.yml'
+        REPORTS_DIR = 'reports'
+        EMAIL_RECIPIENT = 'semanticraj@gmail.com'
+        RAGHEAT_ENV = 'development'
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+                echo 'Code checked out successfully'
+            }
+        }
+        
+        stage('Environment Setup') {
+            steps {
+                script {
+                    echo 'Setting up testing environment...'
+                    
+                    // Clean up any previous containers
+                    sh '''
+                        docker-compose -f ${DOCKER_COMPOSE_FILE} down --remove-orphans || true
+                        docker system prune -f || true
+                    '''
+                    
+                    // Create necessary directories
+                    sh '''
+                        mkdir -p reports logs screenshots
+                        chmod 755 reports logs screenshots
+                    '''
+                }
+            }
+        }
+        
+        stage('Build Services') {
+            steps {
+                script {
+                    echo 'Building RAGHeat application services...'
+                    
+                    sh '''
+                        docker-compose -f ${DOCKER_COMPOSE_FILE} build ragheat-testing
+                        docker-compose -f ${DOCKER_COMPOSE_FILE} pull ragheat-frontend ragheat-backend
+                    '''
+                }
+            }
+        }
+        
+        stage('Start Application') {
+            steps {
+                script {
+                    echo 'Starting RAGHeat application stack...'
+                    
+                    sh '''
+                        docker-compose -f ${DOCKER_COMPOSE_FILE} up -d ragheat-frontend ragheat-backend
+                        
+                        # Wait for services to be ready
+                        echo "Waiting for frontend to be ready..."
+                        timeout 120 sh -c 'until curl -f http://localhost:3000; do sleep 5; done'
+                        
+                        echo "Waiting for backend to be ready..."
+                        timeout 120 sh -c 'until curl -f http://localhost:8000/api/health; do sleep 5; done'
+                        
+                        echo "Services are ready!"
+                    '''
+                }
+            }
+        }
+        
+        stage('Smoke Tests') {
+            steps {
+                script {
+                    echo 'Running Smoke Tests...'
+                    
+                    sh '''
+                        docker-compose -f ${DOCKER_COMPOSE_FILE} run --rm ragheat-testing \
+                        python run_tests.py --suite smoke --headless true --check-app
+                    '''
+                }
+            }
+            post {
+                always {
+                    // Archive smoke test results
+                    archiveArtifacts artifacts: 'reports/smoke_report.html', fingerprint: true, allowEmptyArchive: true
+                    
+                    // Publish smoke test results
+                    publishHTML([
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: true,
+                        keepAll: true,
+                        reportDir: 'reports',
+                        reportFiles: 'smoke_report.html',
+                        reportName: 'Smoke Test Report'
+                    ])
+                }
+                failure {
+                    echo 'Smoke tests failed! Stopping pipeline.'
+                    error('Critical smoke tests failed')
+                }
+            }
+        }
+        
+        stage('Sanity Tests') {
+            when {
+                expression { currentBuild.result != 'FAILURE' }
+            }
+            steps {
+                script {
+                    echo 'Running Sanity Tests...'
+                    
+                    sh '''
+                        docker-compose -f ${DOCKER_COMPOSE_FILE} run --rm ragheat-testing \
+                        python run_tests.py --suite sanity --headless true --check-app
+                    '''
+                }
+            }
+            post {
+                always {
+                    archiveArtifacts artifacts: 'reports/sanity_report.html', fingerprint: true, allowEmptyArchive: true
+                    
+                    publishHTML([
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: true,
+                        keepAll: true,
+                        reportDir: 'reports',
+                        reportFiles: 'sanity_report.html',
+                        reportName: 'Sanity Test Report'
+                    ])
+                }
+            }
+        }
+        
+        stage('Regression Tests') {
+            when {
+                expression { currentBuild.result != 'FAILURE' }
+            }
+            steps {
+                script {
+                    echo 'Running Regression Tests...'
+                    
+                    sh '''
+                        docker-compose -f ${DOCKER_COMPOSE_FILE} run --rm ragheat-testing \
+                        python run_tests.py --suite regression --headless true --check-app
+                    '''
+                }
+            }
+            post {
+                always {
+                    archiveArtifacts artifacts: 'reports/regression_report.html', fingerprint: true, allowEmptyArchive: true
+                    
+                    publishHTML([
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: true,
+                        keepAll: true,
+                        reportDir: 'reports',
+                        reportFiles: 'regression_report.html',
+                        reportName: 'Regression Test Report'
+                    ])
+                }
+            }
+        }
+        
+        stage('Comprehensive Test Suite') {
+            when {
+                anyOf {
+                    branch 'master'
+                    branch 'main'
+                    expression { params.RUN_FULL_SUITE == true }
+                }
+            }
+            steps {
+                script {
+                    echo 'Running Complete Test Suite...'
+                    
+                    sh '''
+                        docker-compose -f ${DOCKER_COMPOSE_FILE} run --rm ragheat-testing \
+                        python run_tests.py --suite all --headless true --check-app
+                    '''
+                }
+            }
+            post {
+                always {
+                    archiveArtifacts artifacts: 'reports/*.html', fingerprint: true, allowEmptyArchive: true
+                    archiveArtifacts artifacts: 'screenshots/**/*.png', fingerprint: true, allowEmptyArchive: true
+                    
+                    publishHTML([
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: true,
+                        keepAll: true,
+                        reportDir: 'reports',
+                        reportFiles: '*.html',
+                        reportName: 'Complete Test Suite Reports'
+                    ])
+                }
+            }
+        }
+        
+        stage('Generate Summary Report') {
+            steps {
+                script {
+                    echo 'Generating test summary report...'
+                    
+                    sh '''
+                        python -c "
+import os
+import json
+from datetime import datetime
+
+# Generate summary report
+summary = {
+    'build_number': '${BUILD_NUMBER}',
+    'build_url': '${BUILD_URL}',
+    'timestamp': datetime.now().isoformat(),
+    'branch': '${GIT_BRANCH}',
+    'commit': '${GIT_COMMIT}',
+    'reports_generated': []
+}
+
+# Check for generated reports
+report_files = ['smoke_report.html', 'sanity_report.html', 'regression_report.html']
+for report in report_files:
+    if os.path.exists(f'reports/{report}'):
+        summary['reports_generated'].append(report)
+
+# Save summary
+with open('reports/build_summary.json', 'w') as f:
+    json.dump(summary, f, indent=2)
+
+print(f'Summary generated: {len(summary[\"reports_generated\"])} reports found')
+"
+                    '''
+                }
+            }
+        }
+    }
+    
+    post {
+        always {
+            script {
+                echo 'Cleaning up test environment...'
+                
+                // Stop all services
+                sh '''
+                    docker-compose -f ${DOCKER_COMPOSE_FILE} down --remove-orphans || true
+                    docker-compose -f ${DOCKER_COMPOSE_FILE} down --volumes || true
+                '''
+                
+                // Archive all artifacts
+                archiveArtifacts artifacts: 'reports/**', fingerprint: true, allowEmptyArchive: true
+                archiveArtifacts artifacts: 'logs/**', fingerprint: true, allowEmptyArchive: true
+                archiveArtifacts artifacts: 'screenshots/**', fingerprint: true, allowEmptyArchive: true
+            }
+        }
+        
+        success {
+            script {
+                echo 'All tests passed successfully!'
+                
+                // Send success email
+                emailext (
+                    subject: "✅ RAGHeat Test Suite - Build #${BUILD_NUMBER} PASSED",
+                    body: """
+                    <h2>🎉 RAGHeat Testing Framework - SUCCESS</h2>
+                    <p><strong>Build:</strong> #${BUILD_NUMBER}</p>
+                    <p><strong>Branch:</strong> ${GIT_BRANCH}</p>
+                    <p><strong>Commit:</strong> ${GIT_COMMIT}</p>
+                    <p><strong>Build URL:</strong> <a href="${BUILD_URL}">${BUILD_URL}</a></p>
+                    
+                    <h3>📊 Test Results:</h3>
+                    <ul>
+                        <li>✅ All test suites passed</li>
+                        <li>📋 Reports available in build artifacts</li>
+                        <li>🔍 Screenshots captured for verification</li>
+                    </ul>
+                    
+                    <h3>📁 Reports:</h3>
+                    <ul>
+                        <li><a href="${BUILD_URL}/HTML_20Report/">HTML Test Reports</a></li>
+                        <li><a href="${BUILD_URL}/artifact/reports/">Archived Reports</a></li>
+                    </ul>
+                    
+                    <p><em>Generated by RAGHeat Jenkins Pipeline</em></p>
+                    """,
+                    to: "${EMAIL_RECIPIENT}",
+                    mimeType: 'text/html'
+                )
+            }
+        }
+        
+        failure {
+            script {
+                echo 'Tests failed! Sending failure notification...'
+                
+                // Send failure email
+                emailext (
+                    subject: "❌ RAGHeat Test Suite - Build #${BUILD_NUMBER} FAILED",
+                    body: """
+                    <h2>🚨 RAGHeat Testing Framework - FAILURE</h2>
+                    <p><strong>Build:</strong> #${BUILD_NUMBER}</p>
+                    <p><strong>Branch:</strong> ${GIT_BRANCH}</p>
+                    <p><strong>Commit:</strong> ${GIT_COMMIT}</p>
+                    <p><strong>Build URL:</strong> <a href="${BUILD_URL}">${BUILD_URL}</a></p>
+                    
+                    <h3>💥 Failure Details:</h3>
+                    <p>One or more test suites failed. Please check the detailed reports and logs.</p>
+                    
+                    <h3>🔍 Investigation Resources:</h3>
+                    <ul>
+                        <li><a href="${BUILD_URL}/console">Console Output</a></li>
+                        <li><a href="${BUILD_URL}/artifact/reports/">Test Reports</a></li>
+                        <li><a href="${BUILD_URL}/artifact/screenshots/">Screenshots</a></li>
+                        <li><a href="${BUILD_URL}/artifact/logs/">Detailed Logs</a></li>
+                    </ul>
+                    
+                    <h3>🛠️ Next Steps:</h3>
+                    <ol>
+                        <li>Review the console output for immediate errors</li>
+                        <li>Check test reports for specific test failures</li>
+                        <li>Examine screenshots for UI-related issues</li>
+                        <li>Fix identified issues and re-run tests</li>
+                    </ol>
+                    
+                    <p><em>Generated by RAGHeat Jenkins Pipeline</em></p>
+                    """,
+                    to: "${EMAIL_RECIPIENT}",
+                    mimeType: 'text/html'
+                )
+            }
+        }
+        
+        unstable {
+            script {
+                echo 'Tests completed with warnings...'
+                
+                emailext (
+                    subject: "⚠️ RAGHeat Test Suite - Build #${BUILD_NUMBER} UNSTABLE",
+                    body: """
+                    <h2>⚠️ RAGHeat Testing Framework - UNSTABLE</h2>
+                    <p><strong>Build:</strong> #${BUILD_NUMBER}</p>
+                    <p><strong>Branch:</strong> ${GIT_BRANCH}</p>
+                    <p><strong>Build URL:</strong> <a href="${BUILD_URL}">${BUILD_URL}</a></p>
+                    
+                    <p>Tests completed but some issues were detected. Please review the reports.</p>
+                    
+                    <p><a href="${BUILD_URL}/artifact/reports/">View Test Reports</a></p>
+                    
+                    <p><em>Generated by RAGHeat Jenkins Pipeline</em></p>
+                    """,
+                    to: "${EMAIL_RECIPIENT}",
+                    mimeType: 'text/html'
+                )
+            }
+        }
+    }
+}

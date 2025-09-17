@@ -1,0 +1,195 @@
+# RAGHeat Multi-Agent Task Configuration
+# Task workflow for portfolio construction with heat diffusion
+
+tasks:
+  construct_knowledge_graph:
+    description: |
+      Build and update the financial knowledge graph with current market data.
+      Extract entities (stocks, sectors, events, indicators) and relationships 
+      (correlatesWith, affectedBy, belongsToSector) from multiple data sources.
+      Integrate SEC filings, news, price data, and economic indicators into a 
+      unified RDF/OWL knowledge structure.
+    agent: knowledge_graph_engineer
+    expected_output: |
+      A comprehensive knowledge graph containing:
+      - Company nodes with attributes (ticker, sector, market cap)
+      - Event nodes (Fed decisions, earnings, news)
+      - Relationship edges with weights
+      - Temporal annotations for dynamic updates
+    tools:
+      - graph_constructor
+      - triple_extractor
+      - ontology_mapper
+
+  analyze_fundamentals:
+    description: |
+      Perform deep fundamental analysis on target stocks by analyzing:
+      - Latest 10-K and 10-Q reports
+      - Revenue growth, profit margins, and cash flow trends
+      - Debt-to-equity ratios and financial health metrics
+      - Management discussion and forward guidance
+      - Competitive positioning and market share
+      Generate a fundamental score and long-term outlook for each stock.
+    agent: fundamental_analyst
+    expected_output: |
+      Fundamental analysis report including:
+      - Financial health score (1-10)
+      - Growth trajectory assessment
+      - Key risks and opportunities
+      - Long-term BUY/HOLD/SELL recommendation
+      - Supporting financial metrics and ratios
+    tools:
+      - fundamental_report_pull
+      - financial_report_rag
+      - financial_ratio_calculator
+    context:
+      - construct_knowledge_graph
+
+  assess_market_sentiment:
+    description: |
+      Analyze current market sentiment and news flow by:
+      - Processing financial news from Bloomberg, Reuters, WSJ
+      - Monitoring social media buzz (Reddit, Twitter, StockTwits)
+      - Tracking analyst rating changes and price targets
+      - Identifying insider trading patterns
+      - Measuring sentiment scores using FinBERT
+      Determine short-term momentum and sentiment-driven opportunities.
+    agent: sentiment_analyst
+    expected_output: |
+      Sentiment analysis report containing:
+      - Aggregate sentiment score (-1 to +1)
+      - Key news events and their impact
+      - Social media momentum indicators
+      - Analyst consensus and recent changes
+      - Short-term sentiment-based recommendation
+    tools:
+      - news_aggregator
+      - sentiment_analyzer
+      - finbert_sentiment
+    context:
+      - construct_knowledge_graph
+
+  calculate_valuations:
+    description: |
+      Perform quantitative valuation analysis including:
+      - Calculate current P/E, P/B, EV/EBITDA ratios
+      - Analyze price and volume trends over multiple timeframes
+      - Compute technical indicators (RSI, MACD, Bollinger Bands)
+      - Calculate volatility and risk metrics
+      - Determine if stocks are over/undervalued relative to historical ranges
+    agent: valuation_analyst
+    expected_output: |
+      Valuation report with:
+      - Current valuation metrics vs historical averages
+      - Technical indicator signals
+      - Volatility and risk assessment
+      - Price targets based on multiple methodologies
+      - Valuation-based BUY/HOLD/SELL signal
+    tools:
+      - price_volume_analyzer
+      - technical_indicator_calculator
+      - volatility_calculator
+
+  simulate_heat_diffusion:
+    description: |
+      Model influence propagation using heat diffusion equations:
+      - Identify recent shock events (Fed decisions, earnings surprises)
+      - Set initial heat values at event source nodes
+      - Simulate heat propagation through graph using Laplacian
+      - Calculate heat scores for all stocks after N iterations
+      - Identify stocks most/least affected by cascading influences
+      Use diffusion coefficient β and iterate until convergence.
+    agent: heat_diffusion_analyst
+    expected_output: |
+      Heat diffusion analysis including:
+      - Heat map visualization of influence spread
+      - Ranked list of stocks by heat intensity
+      - Influence paths from events to stocks
+      - Cascade risk assessment
+      - Structural importance scores
+    tools:
+      - heat_equation_solver
+      - diffusion_simulator
+      - graph_laplacian_calculator
+    context:
+      - construct_knowledge_graph
+      - analyze_fundamentals
+      - assess_market_sentiment
+
+  facilitate_agent_debate:
+    description: |
+      Coordinate multi-agent debate and consensus building:
+      - Present each specialist's analysis to the group
+      - Identify areas of agreement and disagreement
+      - Facilitate structured debate using Round Robin approach
+      - Challenge agents to defend their positions with evidence
+      - Guide agents toward consensus on each stock
+      - Resolve conflicts through weighted scoring
+      Continue debate until consensus or maximum iterations reached.
+    agent: portfolio_coordinator
+    expected_output: |
+      Consensus report containing:
+      - Final BUY/SELL decisions for each stock
+      - Areas of agent agreement/disagreement
+      - Debate transcript and key arguments
+      - Confidence scores for each decision
+      - Risk-adjusted consensus recommendations
+    tools:
+      - debate_moderator
+      - consensus_builder
+    context:
+      - analyze_fundamentals
+      - assess_market_sentiment
+      - calculate_valuations
+      - simulate_heat_diffusion
+
+  construct_portfolio:
+    description: |
+      Build final portfolio based on multi-agent consensus:
+      - Select stocks with strongest BUY consensus
+      - Determine position weights based on conviction and risk
+      - Apply risk tolerance constraints (conservative/neutral/aggressive)
+      - Ensure appropriate diversification across sectors
+      - Calculate expected portfolio metrics (return, volatility, Sharpe)
+      - Generate rebalancing recommendations
+    agent: portfolio_coordinator
+    expected_output: |
+      Portfolio construction report with:
+      - Final stock selections and weights
+      - Expected return and risk metrics
+      - Sharpe ratio and other performance indicators
+      - Sector allocation breakdown
+      - Rebalancing schedule and triggers
+    tools:
+      - portfolio_optimizer
+      - weight_allocator
+      - risk_assessor
+    context:
+      - facilitate_agent_debate
+
+  generate_investment_rationale:
+    description: |
+      Create comprehensive explanation for portfolio decisions:
+      - Trace causal chains from macro events to stock impacts
+      - Generate narrative explanations using chain-of-thought
+      - Create visual heat maps showing influence propagation
+      - Document evidence supporting each decision
+      - Ensure regulatory compliance and auditability
+      - Produce both technical and simplified explanations
+    agent: explanation_generator
+    expected_output: |
+      Investment explanation package including:
+      - Executive summary of portfolio strategy
+      - Detailed rationale for each position
+      - Visual heat maps and influence graphs
+      - Evidence trail and source citations
+      - Risk disclosures and limitations
+      - Both technical and plain-language versions
+    tools:
+      - chain_of_thought_generator
+      - visualization_creator
+      - report_generator
+    context:
+      - facilitate_agent_debate
+      - construct_portfolio
+      - simulate_heat_diffusion

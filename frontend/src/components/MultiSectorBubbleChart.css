@@ -1,0 +1,397 @@
+/* Multi-Sector Bubble Chart Styles */
+.multi-sector-container {
+  padding: 2rem;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.multi-sector-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  color: #00d4ff;
+}
+
+.loading-spinner {
+  margin-bottom: 1rem;
+}
+
+/* Header */
+.sector-header {
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.sector-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #00d4ff;
+  margin: 0;
+}
+
+.sector-stats {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.sector-stats .stat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #a0a0c0;
+}
+
+/* Tesla Highlight */
+.tesla-highlight {
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.2) 0%, rgba(255, 107, 53, 0.1) 100%);
+  border: 1px solid rgba(255, 107, 53, 0.4);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tesla-icon {
+  font-size: 2rem;
+  background: rgba(255, 107, 53, 0.2);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tesla-info h3 {
+  margin: 0 0 0.5rem 0;
+  color: #ff6b35;
+  font-weight: 700;
+}
+
+.tesla-metrics {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tesla-metrics .price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+}
+
+.tesla-metrics .change {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 600;
+}
+
+.tesla-metrics .change.positive {
+  color: #00ff88;
+}
+
+.tesla-metrics .change.negative {
+  color: #ff3366;
+}
+
+.tesla-metrics .heat {
+  background: rgba(255, 107, 53, 0.2);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Sector Overview */
+.sector-overview {
+  margin-bottom: 2rem;
+}
+
+.sector-overview h3 {
+  margin: 0 0 1rem 0;
+  color: #00d4ff;
+  font-weight: 700;
+}
+
+.sector-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.sector-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sector-card:hover,
+.sector-card.selected {
+  border-color: rgba(0, 212, 255, 0.4);
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+}
+
+.sector-color {
+  width: 12px;
+  height: 40px;
+  border-radius: 6px;
+}
+
+.sector-info h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+}
+
+.sector-metrics {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.avg-change {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.avg-change.positive {
+  color: #00ff88;
+}
+
+.avg-change.negative {
+  color: #ff3366;
+}
+
+.stock-count {
+  font-size: 0.8rem;
+  color: #a0a0c0;
+}
+
+.top-performers {
+  font-size: 0.75rem;
+  color: #a0a0c0;
+  font-style: italic;
+}
+
+/* Bubble Chart */
+.bubble-chart-container {
+  margin-bottom: 2rem;
+}
+
+.bubble-chart-container h3 {
+  margin: 0 0 1rem 0;
+  color: #00d4ff;
+  font-weight: 700;
+}
+
+.chart-wrapper {
+  height: 600px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.no-data {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a0a0c0;
+  font-size: 1.1rem;
+}
+
+.bubble-tooltip {
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 8px;
+  padding: 0.75rem;
+  color: white;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.bubble-tooltip div {
+  margin: 0.25rem 0;
+}
+
+/* Top Stocks Section */
+.top-stocks-section {
+  margin-bottom: 2rem;
+}
+
+.top-stocks-section h3 {
+  margin: 0 0 1rem 0;
+  color: #00d4ff;
+  font-weight: 700;
+}
+
+.top-stocks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.stock-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.stock-card:hover {
+  border-color: rgba(0, 212, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.stock-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.stock-header .symbol {
+  font-weight: 700;
+  color: white;
+}
+
+.stock-header .change {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.stock-header .change.positive {
+  color: #00ff88;
+}
+
+.stock-header .change.negative {
+  color: #ff3366;
+}
+
+.stock-price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.stock-metrics {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: #a0a0c0;
+}
+
+/* Performance Legend */
+.performance-legend {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+}
+
+.performance-legend h4 {
+  margin: 0 0 1rem 0;
+  color: #00d4ff;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.legend-items {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #a0a0c0;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.legend-color.positive {
+  background: #00ff88;
+}
+
+.legend-color.negative {
+  background: #ff3366;
+}
+
+.legend-bubble {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(0, 212, 255, 0.3);
+  border: 1px solid rgba(0, 212, 255, 0.6);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .multi-sector-container {
+    padding: 1rem;
+  }
+  
+  .sector-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .sector-stats {
+    gap: 1rem;
+  }
+  
+  .tesla-highlight {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .sector-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .chart-wrapper {
+    height: 400px;
+  }
+  
+  .top-stocks-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .legend-items {
+    justify-content: center;
+  }
+}

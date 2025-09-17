@@ -1,0 +1,164 @@
+// RAGHeat Neo4j Browser Style with BUY/SELL Trading Signals
+// Copy this into Neo4j Browser Style tab for dynamic buy/sell visualization
+
+node {
+  diameter: 50px;
+  color: #A5ABB6;
+  border-color: #9AA1AC;
+  border-width: 2px;
+  text-color-internal: #FFFFFF;
+  font-size: 10px;
+}
+
+// BUY SIGNALS - GREEN SPECTRUM
+node.Stock[trading_signal = "STRONG_BUY"] {
+  color: #00C853;
+  border-color: #2E7D32;
+  border-width: 4px;
+  diameter: 80px;
+  text-color-internal: #FFFFFF;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+node.Stock[trading_signal = "BUY"] {
+  color: #4CAF50;
+  border-color: #388E3C;
+  border-width: 3px;
+  diameter: 70px;
+  text-color-internal: #FFFFFF;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+node.Stock[trading_signal = "WEAK_BUY"] {
+  color: #8BC34A;
+  border-color: #689F38;
+  border-width: 3px;
+  diameter: 65px;
+  text-color-internal: #000000;
+  font-size: 12px;
+}
+
+// HOLD SIGNAL - YELLOW
+node.Stock[trading_signal = "HOLD"] {
+  color: #FFC107;
+  border-color: #F57C00;
+  border-width: 2px;
+  diameter: 60px;
+  text-color-internal: #000000;
+  font-size: 12px;
+}
+
+// SELL SIGNALS - RED SPECTRUM
+node.Stock[trading_signal = "WEAK_SELL"] {
+  color: #FF9800;
+  border-color: #F57C00;
+  border-width: 3px;
+  diameter: 65px;
+  text-color-internal: #000000;
+  font-size: 12px;
+}
+
+node.Stock[trading_signal = "SELL"] {
+  color: #FF5722;
+  border-color: #D84315;
+  border-width: 3px;
+  diameter: 70px;
+  text-color-internal: #FFFFFF;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+node.Stock[trading_signal = "STRONG_SELL"] {
+  color: #D32F2F;
+  border-color: #B71C1C;
+  border-width: 4px;
+  diameter: 80px;
+  text-color-internal: #FFFFFF;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+// DEFAULT STOCK NODES
+node.Stock {
+  diameter: 60px;
+  caption: {symbol};
+  font-size: 12px;
+}
+
+// COMPANY NODES
+node.Company {
+  color: #9013FE;
+  border-color: #651FFF;
+  diameter: 45px;
+  caption: {symbol};
+  font-size: 11px;
+}
+
+// SECTOR NODES
+node.Sector {
+  color: #00BCD4;
+  border-color: #00ACC1;
+  diameter: 55px;
+  caption: {name};
+  font-size: 13px;
+}
+
+// MARKET NODES
+node.Market {
+  color: #E91E63;
+  border-color: #AD1457;
+  diameter: 65px;
+  caption: {name};
+  font-size: 14px;
+  font-weight: bold;
+}
+
+// RELATIONSHIP STYLING
+relationship {
+  color: #757575;
+  shaft-width: 1px;
+  font-size: 8px;
+  padding: 3px;
+  text-color-external: #424242;
+  text-color-internal: #FFFFFF;
+  caption: '';
+}
+
+relationship.CORRELATES {
+  color: #2196F3;
+  shaft-width: 2px;
+  caption: 'CORRELATES';
+}
+
+relationship.BELONGS_TO {
+  color: #4CAF50;
+  shaft-width: 2px;
+  caption: 'BELONGS_TO';
+}
+
+relationship.CONTAINS {
+  color: #FF9800;
+  shaft-width: 3px;
+  caption: 'CONTAINS';
+}
+
+relationship.COMPETES_WITH {
+  color: #F44336;
+  shaft-width: 2px;
+  caption: 'COMPETES';
+}
+
+// TRADING SIGNAL RELATIONSHIPS
+relationship.HAS_SIGNAL {
+  color: #9C27B0;
+  shaft-width: 3px;
+  caption: {direction};
+}
+
+relationship.HEAT_FLOW {
+  color: #FF5722;
+  shaft-width: 4px;
+  caption: {intensity};
+}

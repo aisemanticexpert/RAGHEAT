@@ -1,0 +1,201 @@
+{
+  "execution_metadata": {
+    "start_time": "2025-09-14T14:50:28.931297",
+    "environment": "local",
+    "frontend_url": "http://localhost:3000",
+    "backend_url": "http://localhost:8001",
+    "browser_mode": "visible",
+    "executor": "ComprehensiveTestExecutor",
+    "version": "2.0.0"
+  },
+  "test_suites": {
+    "comprehensive": {
+      "total_tests": 7,
+      "passed_tests": 2,
+      "failed_tests": 5,
+      "test_details": [
+        {
+          "name": "test_complete_portfolio_construction_workflow",
+          "status": "FAILED",
+          "full_line": "\ud83d\udd25 Testing button: portfolio_ai\n\ud83d\uddb1\ufe0f Looking for button: portfolio_ai\n\u274c Button 'portfolio_ai' not found or not clickable\n\ud83d\udcca Button Clicking Results: 0/7 buttons clicked successfully\n   revolutionary_dashboard: \u274c FAILED\n   market_dashboard: \u274c FAILED\n   live_options_signals: \u274c FAILED\n   live_data_stream: \u274c FAILED\n   knowledge_graph: \u274c FAILED\n   enhanced_graph: \u274c FAILED\n   portfolio_ai: \u274c FAILED\n\u274c tests/comprehensive/test_complete_ragheat_system.py::TestCompleteRAGHeatSystem::test_complete_dashboard_navigation_and_clicking - FAILED (149.29s)\n\ud83d\udcf8 Screenshot saved: screenshots/tests_comprehensive_test_complete_ragheat_system.py_TestCompleteRAGHeatSystem_test_complete_dashboard_navigation_and_clicking_failure_20250914_145301.png\nFAILED\ud83d\udcf8 Screenshot saved: screenshots/test_complete_dashboard_navigation_and_clicking_completed_20250914_145304.png\n\ud83e\uddf9 Browser closed for test: test_complete_dashboard_navigation_and_clicking\n\u23f1\ufe0f Test test_complete_dashboard_navigation_and_clicking completed in 157.07s\n\ntests/comprehensive/test_complete_ragheat_system.py::TestCompleteRAGHeatSystem::test_complete_portfolio_construction_workflow \u2705 Chrome WebDriver initialized successfully\n\ud83d\ude80 Starting test: test_complete_portfolio_construction_workflow\n"
+        },
+        {
+          "name": "test_complete_knowledge_graph_system",
+          "status": "FAILED",
+          "full_line": "\ud83d\ude80 Starting comprehensive test: test_complete_portfolio_construction_workflow\n\ud83d\udd25 COMPREHENSIVE TEST 2: Complete Portfolio Construction Workflow\n\ud83c\udf10 Navigating to: http://localhost:3000\n\u2705 Dashboard loaded successfully\n\ud83d\ude80 Testing Portfolio Construction Workflow...\n\ud83d\udd0d Looking for stock input with: //input[@placeholder='Enter stock symbol' or @name='stock' or contains(@class, 'stock-input')]\n\ud83d\udd0d Looking for stock input with: //input[contains(@placeholder, 'stock') or contains(@placeholder, 'Stock')]\n\ud83d\udd0d Looking for stock input with: //input[contains(@placeholder, 'stock')]\n\ud83d\udd0d Looking for stock input with: //input[@type='text']\n\ud83d\udcca Portfolio Workflow Results:\n   Stock Input Found: \u274c FAILED\n   Stocks Entered: \u274c FAILED\n   Portfolio Constructed: \u274c FAILED\n   Results Displayed: \u274c FAILED\n\ud83c\udf10 POST /api/portfolio/construct - 404 - 5.19ms\n   API Portfolio Construction: \u274c FAILED (404)\n\u274c tests/comprehensive/test_complete_ragheat_system.py::TestCompleteRAGHeatSystem::test_complete_portfolio_construction_workflow - FAILED (83.32s)\n\ud83d\udcf8 Screenshot saved: screenshots/tests_comprehensive_test_complete_ragheat_system.py_TestCompleteRAGHeatSystem_test_complete_portfolio_construction_workflow_failure_20250914_145433.png\nFAILED\ud83d\udcf8 Screenshot saved: screenshots/test_complete_portfolio_construction_workflow_completed_20250914_145436.png\n\ud83e\uddf9 Browser closed for test: test_complete_portfolio_construction_workflow\n\u23f1\ufe0f Test test_complete_portfolio_construction_workflow completed in 91.78s\n\ntests/comprehensive/test_complete_ragheat_system.py::TestCompleteRAGHeatSystem::test_complete_knowledge_graph_system \u2705 Chrome WebDriver initialized successfully\n\ud83d\ude80 Starting test: test_complete_knowledge_graph_system\n"
+        },
+        {
+          "name": "test_complete_real_time_data_streaming",
+          "status": "PASSED",
+          "full_line": "\ud83d\ude80 Starting comprehensive test: test_complete_knowledge_graph_system\n\ud83d\udd25 COMPREHENSIVE TEST 3: Complete Knowledge Graph System\n\ud83c\udf10 Navigating to: http://localhost:3000\n\u2705 Dashboard loaded successfully\n\ud83d\ude80 Testing Knowledge Graph Interactions...\n\ud83d\uddb1\ufe0f Looking for button: knowledge_graph\n\u274c Button 'knowledge_graph' not found or not clickable\n\ud83d\udcca Knowledge Graph Test: \u274c FAILED\n   \u274c Knowledge graph visualization not found\n\u2705 tests/comprehensive/test_complete_ragheat_system.py::TestCompleteRAGHeatSystem::test_complete_knowledge_graph_system - PASSED (23.69s)\nPASSED\ud83d\udcf8 Screenshot saved: screenshots/test_complete_knowledge_graph_system_completed_20250914_145505.png\n\ud83e\uddf9 Browser closed for test: test_complete_knowledge_graph_system\n\u23f1\ufe0f Test test_complete_knowledge_graph_system completed in 29.30s\n\ntests/comprehensive/test_complete_ragheat_system.py::TestCompleteRAGHeatSystem::test_complete_real_time_data_streaming \u2705 Chrome WebDriver initialized successfully\n\ud83d\ude80 Starting test: test_complete_real_time_data_streaming\n"
+        },
+        {
+          "name": "test_complete_options_trading_system",
+          "status": "FAILED",
+          "full_line": "\ud83d\ude80 Starting comprehensive test: test_complete_real_time_data_streaming\n\ud83d\udd25 COMPREHENSIVE TEST 4: Real-Time Data Streaming System\n\ud83c\udf10 Navigating to: http://localhost:3000\n\u2705 Dashboard loaded successfully\n\ud83d\ude80 Testing Real-Time Data Features...\n\ud83d\uddb1\ufe0f Looking for button: live_data_stream\n\u274c Button 'live_data_stream' not found or not clickable\n\ud83d\udcca Real-Time Data Streaming: \u274c FAILED\n\u274c tests/comprehensive/test_complete_ragheat_system.py::TestCompleteRAGHeatSystem::test_complete_real_time_data_streaming - FAILED (25.73s)\n\ud83d\udcf8 Screenshot saved: screenshots/tests_comprehensive_test_complete_ragheat_system.py_TestCompleteRAGHeatSystem_test_complete_real_time_data_streaming_failure_20250914_145536.png\nFAILED\ud83d\udcf8 Screenshot saved: screenshots/test_complete_real_time_data_streaming_completed_20250914_145539.png\n\ud83e\uddf9 Browser closed for test: test_complete_real_time_data_streaming\n\u23f1\ufe0f Test test_complete_real_time_data_streaming completed in 33.49s\n\ntests/comprehensive/test_complete_ragheat_system.py::TestCompleteRAGHeatSystem::test_complete_options_trading_system \u2705 Chrome WebDriver initialized successfully\n\ud83d\ude80 Starting test: test_complete_options_trading_system\n"
+        },
+        {
+          "name": "test_complete_multi_agent_system",
+          "status": "PASSED",
+          "full_line": "\ud83d\ude80 Starting comprehensive test: test_complete_options_trading_system\n\ud83d\udd25 COMPREHENSIVE TEST 5: Complete Options Trading System\n\ud83c\udf10 Navigating to: http://localhost:3000\n\u2705 Dashboard loaded successfully\n\ud83d\ude80 Testing Options Trading Features...\n\ud83d\uddb1\ufe0f Looking for button: live_options_signals\n\u274c Button 'live_options_signals' not found or not clickable\n\ud83d\udcca Options Trading System: \u274c FAILED\n   \u274c Options trading interface not accessible\n\u2705 tests/comprehensive/test_complete_ragheat_system.py::TestCompleteRAGHeatSystem::test_complete_options_trading_system - PASSED (23.61s)\nPASSED\ud83d\udcf8 Screenshot saved: screenshots/test_complete_options_trading_system_completed_20250914_145608.png\n\ud83e\uddf9 Browser closed for test: test_complete_options_trading_system\n\u23f1\ufe0f Test test_complete_options_trading_system completed in 28.94s\n\ntests/comprehensive/test_complete_ragheat_system.py::TestCompleteRAGHeatSystem::test_complete_multi_agent_system \u2705 Chrome WebDriver initialized successfully\n\ud83d\ude80 Starting test: test_complete_multi_agent_system\n"
+        },
+        {
+          "name": "test_complete_system_integration",
+          "status": "FAILED",
+          "full_line": "\ud83d\ude80 Starting comprehensive test: test_complete_multi_agent_system\n\ud83d\udd25 COMPREHENSIVE TEST 6: Complete Multi-Agent Analysis System\n\ud83c\udf10 Navigating to: http://localhost:3000\n\u2705 Dashboard loaded successfully\n\ud83d\ude80 Testing Multi-Agent System...\n\ud83d\udcca Multi-Agent System Results:\n   \u274c Fundamental Agent: NOT FOUND\n   \u274c Sentiment Agent: NOT FOUND\n   \u274c Technical Agent: NOT FOUND\n   \u274c Consensus Found: NOT FOUND\n   \ud83d\udcc8 Active Agents: 0/4\n\ud83c\udf10 POST /api/analysis/fundamental - 404 - 4.02ms\n\ud83c\udf10 POST /api/analysis/sentiment - 404 - 2.70ms\n   \u274c Fundamental Analysis API: FAILED (404)\n   \u274c Sentiment Analysis API: FAILED (404)\n   \ud83d\udd17 API Agents Working: 0/2\n\u274c tests/comprehensive/test_complete_ragheat_system.py::TestCompleteRAGHeatSystem::test_complete_multi_agent_system - FAILED (55.01s)\n\ud83d\udcf8 Screenshot saved: screenshots/tests_comprehensive_test_complete_ragheat_system.py_TestCompleteRAGHeatSystem_test_complete_multi_agent_system_failure_20250914_145708.png\nFAILED\ud83d\udcf8 Screenshot saved: screenshots/test_complete_multi_agent_system_completed_20250914_145710.png\n\ud83e\uddf9 Browser closed for test: test_complete_multi_agent_system\n\u23f1\ufe0f Test test_complete_multi_agent_system completed in 63.00s\n\ntests/comprehensive/test_complete_ragheat_system.py::TestCompleteRAGHeatSystem::test_complete_system_integration \u2705 Chrome WebDriver initialized successfully\n\ud83d\ude80 Starting test: test_complete_system_integration\n"
+        },
+        {
+          "name": "test_complete_system_integration\n=============",
+          "status": "FAILED",
+          "full_line": "\ud83d\udcca COMPLETE SYSTEM INTEGRATION RESULTS:\n============================================================\n\ud83c\udf10 Navigation: \u2705 SUCCESS\n\ud83d\uddb1\ufe0f Button Interactions: 0/7 successful\n\ud83d\udcbc Portfolio Workflow: 0/4 steps completed\n\ud83d\udd17 Knowledge Graph: \u274c NOT FOUND\n\ud83d\udce1 Real-Time Data: \u274c NOT FOUND\n\ud83d\udcc8 Options Trading: \u274c NOT FOUND (0 signals)\n\ud83e\udd16 Multi-Agent System: 0/4 agents found\n\ud83d\udcf8 Screenshots Captured: 71\n============================================================\n\ud83c\udfaf OVERALL SYSTEM SUCCESS RATE: 14.3%\n\u274c tests/comprehensive/test_complete_ragheat_system.py::TestCompleteRAGHeatSystem::test_complete_system_integration - FAILED (339.30s)\n\ud83d\udcf8 Screenshot saved: screenshots/tests_comprehensive_test_complete_ragheat_system.py_TestCompleteRAGHeatSystem_test_complete_system_integration_failure_20250914_150255.png\nFAILED\ud83d\udcf8 Screenshot saved: screenshots/test_complete_system_integration_completed_20250914_150258.png\n\ud83e\uddf9 Browser closed for test: test_complete_system_integration\n\u23f1\ufe0f Test test_complete_system_integration completed in 348.24s\n\u2705 API session closed successfully\n\ud83d\udcca Total test execution time: 751.84s\n\n================================================================================\n\ud83c\udfc1 RAGHeat Testing Framework - Session Finished (Exit: 1)\n================================================================================\n\n\n=================================== FAILURES ===================================\n__ TestCompleteRAGHeatSystem.test_complete_dashboard_navigation_and_clicking ___\ntests/comprehensive/test_complete_ragheat_system.py:52: in test_complete_dashboard_navigation_and_clicking\n    assert success_rate >= 50, f\"Only {success_rate:.1f}% of buttons were clickable (expected \u226550%)\"\nE   AssertionError: Only 0.0% of buttons were clickable (expected \u226550%)\nE   assert 0.0 >= 50\n------------------------------ Captured log setup ------------------------------\nINFO     WDM:logger.py:11 ====== WebDriver manager ======\nINFO     WDM:logger.py:11 Get LATEST chromedriver version for google-chrome\nINFO     WDM:logger.py:11 Get LATEST chromedriver version for google-chrome\nINFO     WDM:logger.py:11 Driver [/Users/rajeshgupta/.wdm/drivers/chromedriver/mac64/140.0.7339.82/chromedriver-mac-x64/chromedriver] found in cache\n___ TestCompleteRAGHeatSystem.test_complete_portfolio_construction_workflow ____\ntests/comprehensive/test_complete_ragheat_system.py:84: in test_complete_portfolio_construction_workflow\n    assert workflow_results['stock_input_found'], \"Stock input field not found - portfolio construction impossible\"\nE   AssertionError: Stock input field not found - portfolio construction impossible\nE   assert False\n------------------------------ Captured log setup ------------------------------\nINFO     WDM:logger.py:11 ====== WebDriver manager ======\nINFO     WDM:logger.py:11 Get LATEST chromedriver version for google-chrome\nINFO     WDM:logger.py:11 Get LATEST chromedriver version for google-chrome\nINFO     WDM:logger.py:11 Driver [/Users/rajeshgupta/.wdm/drivers/chromedriver/mac64/140.0.7339.82/chromedriver-mac-x64/chromedriver] found in cache\n_______ TestCompleteRAGHeatSystem.test_complete_real_time_data_streaming _______\ntests/comprehensive/test_complete_ragheat_system.py:136: in test_complete_real_time_data_streaming\n    system_status = self.api_client.get_system_status()\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AttributeError: 'RAGHeatAPIClient' object has no attribute 'get_system_status'\n------------------------------ Captured log setup ------------------------------\nINFO     WDM:logger.py:11 ====== WebDriver manager ======\nINFO     WDM:logger.py:11 Get LATEST chromedriver version for google-chrome\nINFO     WDM:logger.py:11 Get LATEST chromedriver version for google-chrome\nINFO     WDM:logger.py:11 Driver [/Users/rajeshgupta/.wdm/drivers/chromedriver/mac64/140.0.7339.82/chromedriver-mac-x64/chromedriver] found in cache\n__________ TestCompleteRAGHeatSystem.test_complete_multi_agent_system __________\ntests/comprehensive/test_complete_ragheat_system.py:214: in test_complete_multi_agent_system\n    assert total_agent_indicators >= 1, \"No agent systems found working (UI or API)\"\nE   AssertionError: No agent systems found working (UI or API)\nE   assert 0 >= 1\n------------------------------ Captured log setup ------------------------------\nINFO     WDM:logger.py:11 ====== WebDriver manager ======\nINFO     WDM:logger.py:11 Get LATEST chromedriver version for google-chrome\nINFO     WDM:logger.py:11 Get LATEST chromedriver version for google-chrome\nINFO     WDM:logger.py:11 Driver [/Users/rajeshgupta/.wdm/drivers/chromedriver/mac64/140.0.7339.82/chromedriver-mac-x64/chromedriver] found in cache\n__________ TestCompleteRAGHeatSystem.test_complete_system_integration __________\ntests/comprehensive/test_complete_ragheat_system.py:280: in test_complete_system_integration\n    assert button_success_count >= 1, \"At least one button must be clickable\"\nE   AssertionError: At least one button must be clickable\nE   assert 0 >= 1\n------------------------------ Captured log setup ------------------------------\nINFO     WDM:logger.py:11 ====== WebDriver manager ======\nINFO     WDM:logger.py:11 Get LATEST chromedriver version for google-chrome\nINFO     WDM:logger.py:11 Get LATEST chromedriver version for google-chrome\nINFO     WDM:logger.py:11 Driver [/Users/rajeshgupta/.wdm/drivers/chromedriver/mac64/140.0.7339.82/chromedriver-mac-x64/chromedriver] found in cache\n=============================== warnings summary ===============================\ntests/comprehensive/test_complete_ragheat_system.py:25\n  /Users/rajeshgupta/PycharmProjects/ragheat-poc/hostinger-deploy/ragheat_testing_framework/tests/comprehensive/test_complete_ragheat_system.py:25: PytestUnknownMarkWarning: Unknown pytest.mark.comprehensive - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.comprehensive\n\ntests/comprehensive/test_complete_ragheat_system.py:56\n  /Users/rajeshgupta/PycharmProjects/ragheat-poc/hostinger-deploy/ragheat_testing_framework/tests/comprehensive/test_complete_ragheat_system.py:56: PytestUnknownMarkWarning: Unknown pytest.mark.comprehensive - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.comprehensive\n\ntests/comprehensive/test_complete_ragheat_system.py:91\n  /Users/rajeshgupta/PycharmProjects/ragheat-poc/hostinger-deploy/ragheat_testing_framework/tests/comprehensive/test_complete_ragheat_system.py:91: PytestUnknownMarkWarning: Unknown pytest.mark.comprehensive - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.comprehensive\n\ntests/comprehensive/test_complete_ragheat_system.py:116\n  /Users/rajeshgupta/PycharmProjects/ragheat-poc/hostinger-deploy/ragheat_testing_framework/tests/comprehensive/test_complete_ragheat_system.py:116: PytestUnknownMarkWarning: Unknown pytest.mark.comprehensive - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.comprehensive\n\ntests/comprehensive/test_complete_ragheat_system.py:143\n  /Users/rajeshgupta/PycharmProjects/ragheat-poc/hostinger-deploy/ragheat_testing_framework/tests/comprehensive/test_complete_ragheat_system.py:143: PytestUnknownMarkWarning: Unknown pytest.mark.comprehensive - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.comprehensive\n\ntests/comprehensive/test_complete_ragheat_system.py:166\n  /Users/rajeshgupta/PycharmProjects/ragheat-poc/hostinger-deploy/ragheat_testing_framework/tests/comprehensive/test_complete_ragheat_system.py:166: PytestUnknownMarkWarning: Unknown pytest.mark.comprehensive - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.comprehensive\n\ntests/comprehensive/test_complete_ragheat_system.py:218\n  /Users/rajeshgupta/PycharmProjects/ragheat-poc/hostinger-deploy/ragheat_testing_framework/tests/comprehensive/test_complete_ragheat_system.py:218: PytestUnknownMarkWarning: Unknown pytest.mark.comprehensive - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.comprehensive\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- Generated html report: file:///Users/rajeshgupta/PycharmProjects/ragheat-poc/hostinger-deploy/ragheat_testing_framework/reports/comprehensive/comprehensive_test_report.html -\n=========================== short test summary info ============================\nFAILED tests/comprehensive/test_complete_ragheat_system.py::TestCompleteRAGHeatSystem::test_complete_dashboard_navigation_and_clicking\nFAILED tests/comprehensive/test_complete_ragheat_system.py::TestCompleteRAGHeatSystem::test_complete_portfolio_construction_workflow\nFAILED tests/comprehensive/test_complete_ragheat_system.py::TestCompleteRAGHeatSystem::test_complete_real_time_data_streaming\nFAILED tests/comprehensive/test_complete_ragheat_system.py::TestCompleteRAGHeatSystem::test_complete_multi_agent_system\nFAILED tests/comprehensive/test_complete_ragheat_system.py::TestCompleteRAGHeatSystem::test_complete_system_integration\n============= 5 failed, 2 passed, 7 warnings in 751.92s (0:12:31) ==============\n"
+        }
+      ],
+      "duration": 0,
+      "exit_code": 1
+    },
+    "application_startup": {
+      "passed": 4,
+      "failed": 3,
+      "exit_code": 1,
+      "executed": true
+    },
+    "portfolio_construction": {
+      "passed": 0,
+      "failed": 9,
+      "exit_code": 1,
+      "executed": true
+    },
+    "dashboard_components": {
+      "passed": 10,
+      "failed": 0,
+      "exit_code": 0,
+      "executed": true
+    }
+  },
+  "screenshots_captured": [
+    "screenshots/tests_smoke_test_application_startup.py_TestApplicationStartup_test_main_page_components_present_failure_20250914_141345.png",
+    "screenshots/test_frontend_application_loads_completed_20250914_144129.png",
+    "screenshots/tests_comprehensive_test_complete_ragheat_system.py_TestCompleteRAGHeatSystem_test_complete_portfolio_construction_workflow_failure_20250914_145433.png",
+    "screenshots/tests_sanity_test_dashboard_components.py_TestDashboardComponents_test_responsive_layout_failure_20250914_142130.png",
+    "screenshots/tests_comprehensive_test_complete_ragheat_system.py_TestCompleteRAGHeatSystem_test_complete_system_integration_failure_20250914_150255.png",
+    "screenshots/test_main_page_components_present_completed_20250914_144304.png",
+    "screenshots/test_stock_input_field_interaction_completed_20250914_150448.png",
+    "screenshots/tests_smoke_test_api_endpoints.py_TestCriticalAPIEndpoints_test_health_endpoint_accessibility_failure_20250914_140838.png",
+    "screenshots/test_data_display_components_completed_20250914_150838.png",
+    "screenshots/frontend_application_loaded_20250914_143357.png",
+    "screenshots/tests_smoke_test_portfolio_construction.py_TestPortfolioConstruction_test_portfolio_construction_button_present_failure_20250914_150540.png",
+    "screenshots/test_navigation_consistency_completed_20250914_150954.png",
+    "screenshots/tests_smoke_test_application_startup.py_TestApplicationStartup_test_frontend_application_loads_failure_20250914_142553.png",
+    "screenshots/test_health_endpoint_accessibility_completed_20250914_143334.png",
+    "screenshots/test_api_health_check_completed_20250914_144136.png",
+    "screenshots/tests_smoke_test_application_startup.py_TestApplicationStartup_test_frontend_application_loads_failure_20250914_140812.png",
+    "screenshots/test_api_health_check_completed_20250914_144254.png",
+    "screenshots/tests_smoke_test_application_startup.py_TestApplicationStartup_test_api_health_check_failure_20250914_143405.png",
+    "screenshots/tests_smoke_test_api_endpoints.py_TestCriticalAPIEndpoints_test_health_endpoint_accessibility_failure_20250914_140801.png",
+    "screenshots/navigation_consistency_20250914_150951.png",
+    "screenshots/frontend_application_loaded_20250914_143554.png",
+    "screenshots/test_frontend_application_loads_completed_20250914_143245.png",
+    "screenshots/test_portfolio_api_construct_basic_completed_20250914_150334.png",
+    "screenshots/tests_smoke_test_api_endpoints.py_TestCriticalAPIEndpoints_test_health_endpoint_accessibility_failure_20250914_141328.png",
+    "screenshots/dashboard_button_interactions_20250914_150651.png",
+    "screenshots/test_api_health_check_completed_20250914_143406.png",
+    "screenshots/tests_smoke_test_application_startup.py_TestApplicationStartup_test_api_health_check_failure_20250914_144253.png",
+    "screenshots/data_display_components_20250914_150836.png",
+    "screenshots/frontend_application_loaded_20250914_143242.png",
+    "screenshots/tests_smoke_test_application_startup.py_TestApplicationStartup_test_api_health_check_failure_20250914_142555.png",
+    "screenshots/main_page_components_20250914_144302.png",
+    "screenshots/tests_smoke_test_portfolio_construction.py_TestPortfolioConstruction_test_portfolio_api_construct_basic_failure_20250914_142610.png",
+    "screenshots/tests_sanity_test_dashboard_components.py_TestDashboardComponents_test_dashboard_button_interactions_failure_20250914_141935.png",
+    "screenshots/tests_smoke_test_portfolio_construction.py_TestPortfolioConstruction_test_portfolio_api_construct_basic_failure_20250914_144311.png",
+    "screenshots/responsive_layout_test_20250914_150905.png",
+    "screenshots/test_complete_options_trading_system_completed_20250914_145608.png",
+    "screenshots/tests_smoke_test_application_startup.py_TestApplicationStartup_test_api_health_check_failure_20250914_141339.png",
+    "screenshots/tests_sanity_test_dashboard_components.py_TestDashboardComponents_test_data_display_components_failure_20250914_142108.png",
+    "screenshots/test_portfolio_construct_endpoint_completed_20250914_143338.png",
+    "screenshots/test_frontend_application_loads_completed_20250914_143150.png",
+    "screenshots/tests_sanity_test_api_functionality.py_TestAPIFunctionality_test_api_error_handling_failure_20250914_141829.png",
+    "screenshots/test_main_page_components_present_completed_20250914_143418.png",
+    "screenshots/tests_smoke_test_application_startup.py_TestApplicationStartup_test_main_page_components_present_failure_20250914_142602.png",
+    "screenshots/test_frontend_application_loads_completed_20250914_143557.png",
+    "screenshots/tests_smoke_test_application_startup.py_TestApplicationStartup_test_api_health_check_failure_20250914_144135.png",
+    "screenshots/test_main_page_components_present_completed_20250914_143619.png",
+    "screenshots/test_frontend_application_loads_completed_20250914_150311.png",
+    "screenshots/test_system_status_endpoint_completed_20250914_143342.png",
+    "screenshots/test_sentiment_analysis_endpoint_completed_20250914_143350.png",
+    "screenshots/tests_smoke_test_application_startup.py_TestApplicationStartup_test_frontend_application_loads_failure_20250914_140846.png",
+    "screenshots/tests_sanity_test_api_functionality.py_TestAPIFunctionality_test_api_response_data_integrity_failure_20250914_141829.png",
+    "screenshots/test_portfolio_api_construct_basic_completed_20250914_144311.png",
+    "screenshots/test_main_page_components_present_completed_20250914_144146.png",
+    "screenshots/test_main_page_components_present_completed_20250914_150327.png",
+    "screenshots/test_complete_system_integration_completed_20250914_150258.png",
+    "screenshots/test_api_health_check_completed_20250914_150317.png",
+    "screenshots/tests_sanity_test_api_functionality.py_TestAPIFunctionality_test_api_performance_consistency_failure_20250914_141829.png",
+    "screenshots/test_responsive_layout_completed_20250914_150908.png",
+    "screenshots/frontend_application_loaded_20250914_144127.png",
+    "screenshots/test_frontend_application_loads_completed_20250914_143400.png",
+    "screenshots/tests_smoke_test_portfolio_construction.py_TestPortfolioConstruction_test_stock_input_field_interaction_failure_20250914_142718.png",
+    "screenshots/test_complete_portfolio_construction_workflow_completed_20250914_145436.png",
+    "screenshots/tests_sanity_test_api_functionality.py_TestAPIFunctionality_test_api_data_persistence_failure_20250914_141833.png",
+    "screenshots/frontend_application_loaded_20250914_144244.png",
+    "screenshots/tests_sanity_test_api_functionality.py_TestAPIFunctionality_test_api_agent_coordination_failure_20250914_141833.png",
+    "screenshots/test_complete_multi_agent_system_completed_20250914_145710.png",
+    "screenshots/test_form_input_validation_completed_20250914_150745.png",
+    "screenshots/tests_smoke_test_portfolio_construction.py_TestPortfolioConstruction_test_stock_input_field_interaction_failure_20250914_150444.png",
+    "screenshots/tests_sanity_test_dashboard_components.py_TestDashboardComponents_test_navigation_consistency_failure_20250914_142208.png",
+    "screenshots/tests_smoke_test_api_endpoints.py_TestCriticalAPIEndpoints_test_health_endpoint_accessibility_failure_20250914_143334.png",
+    "screenshots/tests_smoke_test_api_endpoints.py_TestCriticalAPIEndpoints_test_portfolio_construct_endpoint_failure_20250914_140801.png",
+    "screenshots/frontend_application_loaded_20250914_150308.png",
+    "screenshots/frontend_application_loaded_20250914_143148.png",
+    "screenshots/tests_smoke_test_api_endpoints.py_TestCriticalAPIEndpoints_test_portfolio_construct_endpoint_failure_20250914_143338.png",
+    "screenshots/tests_smoke_test_api_endpoints.py_TestCriticalAPIEndpoints_test_portfolio_construct_endpoint_failure_20250914_141329.png",
+    "screenshots/tests_comprehensive_test_complete_ragheat_system.py_TestCompleteRAGHeatSystem_test_complete_dashboard_navigation_and_clicking_failure_20250914_145301.png",
+    "screenshots/tests_comprehensive_test_complete_ragheat_system.py_TestCompleteRAGHeatSystem_test_complete_real_time_data_streaming_failure_20250914_145536.png",
+    "screenshots/test_complete_dashboard_navigation_and_clicking_completed_20250914_145304.png",
+    "screenshots/tests_smoke_test_application_startup.py_TestApplicationStartup_test_api_health_check_failure_20250914_150316.png",
+    "screenshots/test_complete_knowledge_graph_system_completed_20250914_145505.png",
+    "screenshots/frontend_loaded.png",
+    "screenshots/main_page_components_20250914_143416.png",
+    "screenshots/main_page_components_20250914_150324.png",
+    "screenshots/test_dashboard_button_interactions_completed_20250914_150653.png",
+    "screenshots/tests_smoke_test_portfolio_construction.py_TestPortfolioConstruction_test_portfolio_api_construct_basic_failure_20250914_150333.png",
+    "screenshots/tests_smoke_test_application_startup.py_TestApplicationStartup_test_frontend_application_loads_failure_20250914_141337.png",
+    "screenshots/test_portfolio_construction_button_present_completed_20250914_150543.png",
+    "screenshots/test_fundamental_analysis_endpoint_completed_20250914_143346.png",
+    "screenshots/tests_smoke_test_api_endpoints.py_TestCriticalAPIEndpoints_test_portfolio_construct_endpoint_failure_20250914_140838.png",
+    "screenshots/main_page_components_20250914_144144.png",
+    "screenshots/tests_comprehensive_test_complete_ragheat_system.py_TestCompleteRAGHeatSystem_test_complete_multi_agent_system_failure_20250914_145708.png",
+    "screenshots/test_frontend_application_loads_completed_20250914_144247.png",
+    "screenshots/main_page_components_20250914_143616.png",
+    "screenshots/test_complete_real_time_data_streaming_completed_20250914_145539.png"
+  ],
+  "comprehensive_results": {},
+  "stakeholder_summary": {
+    "execution_date": "2025-09-14 15:09:57",
+    "total_execution_time": "1168.5 seconds",
+    "total_tests_executed": 33,
+    "tests_passed": 16,
+    "tests_failed": 17,
+    "overall_success_rate": "48.5%",
+    "screenshots_captured": 94,
+    "browser_automation": "Visible browser automation with real clicking",
+    "xpath_interactions": "XPath-based element interactions implemented",
+    "features_tested": [
+      "Dashboard Navigation & Button Clicking",
+      "Portfolio Construction Workflow",
+      "Knowledge Graph Visualization",
+      "Real-Time Data Streaming",
+      "Options Trading System",
+      "Multi-Agent Analysis System",
+      "Complete System Integration"
+    ],
+    "technical_validations": [
+      "Frontend Application Loading",
+      "Backend API Connectivity",
+      "XPath Element Detection",
+      "UI Component Interactions",
+      "Data Visualization Rendering",
+      "WebSocket Connectivity",
+      "Multi-Agent API Endpoints"
+    ]
+  }
+}

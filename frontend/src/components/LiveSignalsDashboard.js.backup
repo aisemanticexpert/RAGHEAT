@@ -1,0 +1,498 @@
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  TrendingUp, 
+  TrendingDown, 
+  Zap, 
+  AlertTriangle,
+  Target,
+  Clock,
+  DollarSign,
+  BarChart3,
+  Settings,
+  Wifi,
+  WifiOff,
+  Filter
+} from 'lucide-react';
+import './LiveSignalsDashboard.css';
+
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+const WS_BASE_URL = API_BASE_URL.replace('http', 'ws');
+
+const LiveSignalsDashboard = () => {
+  const [signals, setSignals] = useState([]);
+  const [alerts, setAlerts] = useState([]);
+  const [isConnected, setIsConnected] = useState(false);
+  const [connectionStatus, setConnectionStatus] = useState('disconnected');
+  const [streamingStats, setStreamingStats] = useState({});
+  const [filters, setFilters] = useState({
+    min_priority: 7,
+    min_win_probability: 0.90,
+    symbols: [],
+    signal_types: [],
+    max_signals: 15
+  });
+  const [showFilters, setShowFilters] = useState(false);
+  const [heatAnalysis, setHeatAnalysis] = useState({});
+  
+  const wsRef = useRef(null);
+  const reconnectTimeoutRef = useRef(null);
+  const reconnectAttempts = useRef(0);
+  const maxReconnectAttempts = 5;
+
+  // REST API polling for live data
+  const fetchLiveData = useCallback(async () => {
+    try {
+      setConnectionStatus('connecting');
+      
+      // Fetch current signals
+      const signalsResponse = await fetch(
+        `${API_BASE_URL}/api/live-signals/current?min_priority=${filters.min_priority}&min_win_probability=${filters.min_win_probability}&max_results=${filters.max_signals}`
+      );
+      
+      if (signalsResponse.ok) {
+        const signalsData = await signalsResponse.json();
+        setSignals(signalsData);
+        setIsConnected(true);
+        setConnectionStatus('connected');
+        reconnectAttempts.current = 0;
+      } else {
+        throw new Error(`Failed to fetch signals: ${signalsResponse.status}`);
+      }
+      
+      // Fetch heat analysis
+      const heatResponse = await fetch(`${API_BASE_URL}/api/live-signals/heat-analysis`);
+      if (heatResponse.ok) {
+        const heatData = await heatResponse.json();
+        setHeatAnalysis(heatData);
+      }
+      
+      // Fetch streaming stats
+      const statsResponse = await fetch(`${API_BASE_URL}/api/live-signals/streaming-stats`);
+      if (statsResponse.ok) {
+        const statsData = await statsResponse.json();
+        setStreamingStats(statsData);
+      }
+      
+    } catch (error) {
+      console.error('Error fetching live data:', error);
+      setIsConnected(false);
+      
+      if (reconnectAttempts.current < maxReconnectAttempts) {
+        reconnectAttempts.current++;
+        setConnectionStatus(`reconnecting (${reconnectAttempts.current}/${maxReconnectAttempts})`);
+      } else {
+        setConnectionStatus('failed');
+      }
+    }
+  }, [filters]);
+
+  // Start polling
+  const startPolling = useCallback(() => {
+    // Initial fetch
+    fetchLiveData();
+    
+    // Set up polling interval
+    const pollInterval = setInterval(fetchLiveData, 5000); // Poll every 5 seconds
+    
+    return () => clearInterval(pollInterval);
+  }, [fetchLiveData]);
+
+  const handleWebSocketMessage = (data) => {
+    switch (data.type) {
+      case 'signal_update':
+        setSignals(data.signals || []);
+        if (data.alerts) {
+          setAlerts(prev => [...prev, ...data.alerts].slice(-50)); // Keep last 50 alerts
+        }
+        break;
+        
+      case 'initial_signals':
+        setSignals(data.signals || []);
+        break;
+        
+      case 'filtered_update':
+        setSignals(data.signals || []);
+        break;
+        
+      case 'manual_alert':
+        setAlerts(prev => [...prev, data.alert].slice(-50));
+        break;
+        
+      case 'pong':
+        // Handle ping/pong for connection health
+        break;
+        
+      default:
+        console.log('Unknown message type:', data.type);
+    }
+  };
+
+  // Initialize polling
+  useEffect(() => {
+    const cleanup = startPolling();
+    
+    // Cleanup
+    return () => {
+      if (reconnectTimeoutRef.current) {
+        clearTimeout(reconnectTimeoutRef.current);
+      }
+      cleanup();
+    };
+  }, [startPolling]);
+
+  // Update filters
+  const updateFilters = (newFilters) => {
+    setFilters(prev => ({ ...prev, ...newFilters }));
+    // Filters will be applied on next poll automatically
+  };
+
+  // Remove separate functions since they're now part of fetchLiveData
+
+  const startStreaming = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/live-signals/start-streaming`, {
+        method: 'POST'
+      });
+      const result = await response.json();
+      console.log('Streaming started:', result);
+    } catch (error) {
+      console.error('Error starting streaming:', error);
+    }
+  };
+
+  const getSignalIcon = (signalType) => {
+    switch (signalType) {
+      case 'BULLISH_CALL':
+      case 'BREAKOUT_MOMENTUM':
+        return <TrendingUp className="signal-icon bullish" />;
+      case 'BEARISH_PUT':
+      case 'REVERSAL_CONTRARIAN':
+        return <TrendingDown className="signal-icon bearish" />;
+      case 'VOLATILITY_STRADDLE':
+        return <Zap className="signal-icon straddle" />;
+      case 'EARNINGS_PLAY':
+        return <Target className="signal-icon earnings" />;
+      default:
+        return <BarChart3 className="signal-icon default" />;
+    }
+  };
+
+  const getStrengthColor = (strength) => {
+    switch (strength) {
+      case 'ULTRA_STRONG': return '#00ff88';
+      case 'STRONG': return '#88ff44';
+      case 'MODERATE': return '#ffaa00';
+      case 'WEAK': return '#ff6b35';
+      default: return '#6b7280';
+    }
+  };
+
+  const getHeatColor = (heatScore) => {
+    if (heatScore > 0.9) return '#ff0066';
+    if (heatScore > 0.8) return '#ff3366';
+    if (heatScore > 0.7) return '#ff6b35';
+    if (heatScore > 0.6) return '#ffaa00';
+    if (heatScore > 0.5) return '#88ff44';
+    return '#6b7280';
+  };
+
+  // Sort signals by priority and heat score
+  const sortedSignals = [...signals].sort((a, b) => {
+    if (a.priority !== b.priority) return b.priority - a.priority;
+    return b.heat_score - a.heat_score;
+  });
+
+  return (
+    <div className="live-signals-dashboard">
+      {/* Header */}
+      <div className="dashboard-header">
+        <div className="header-left">
+          <h2>🔥 Live Options Signals</h2>
+          <div className="connection-status">
+            {isConnected ? (
+              <div className="status connected">
+                <Wifi size={16} />
+                <span>Live</span>
+              </div>
+            ) : (
+              <div className="status disconnected">
+                <WifiOff size={16} />
+                <span>{connectionStatus}</span>
+              </div>
+            )}
+          </div>
+        </div>
+        
+        <div className="header-right">
+          <button 
+            className="filter-btn"
+            onClick={() => setShowFilters(!showFilters)}
+          >
+            <Filter size={16} />
+            Filters
+          </button>
+          
+          {!streamingStats.is_streaming && (
+            <button className="start-streaming-btn" onClick={startStreaming}>
+              Start Live Stream
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Market Heat Analysis */}
+      {heatAnalysis.market_heat_status && (
+        <div className="heat-analysis-panel">
+          <h3>Market Heat Analysis</h3>
+          <div className="heat-metrics">
+            <div className="heat-metric">
+              <span className="label">Market Status:</span>
+              <span className={`value heat-${heatAnalysis.market_heat_status.toLowerCase()}`}>
+                {heatAnalysis.market_heat_status.replace('_', ' ')}
+              </span>
+            </div>
+            <div className="heat-metric">
+              <span className="label">Avg Heat:</span>
+              <span className="value">{(heatAnalysis.average_heat_score * 100).toFixed(1)}%</span>
+            </div>
+            <div className="heat-metric">
+              <span className="label">Ultra Strong:</span>
+              <span className="value">{heatAnalysis.ultra_strong_signals}</span>
+            </div>
+            <div className="heat-metric">
+              <span className="label">Total Signals:</span>
+              <span className="value">{heatAnalysis.total_signals}</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Filters Panel */}
+      <AnimatePresence>
+        {showFilters && (
+          <motion.div
+            className="filters-panel"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+          >
+            <div className="filter-controls">
+              <div className="filter-group">
+                <label>Min Priority:</label>
+                <input
+                  type="range"
+                  min="1"
+                  max="10"
+                  value={filters.min_priority}
+                  onChange={(e) => updateFilters({ min_priority: parseInt(e.target.value) })}
+                />
+                <span>{filters.min_priority}</span>
+              </div>
+              
+              <div className="filter-group">
+                <label>Min Win Probability:</label>
+                <input
+                  type="range"
+                  min="0.5"
+                  max="1"
+                  step="0.05"
+                  value={filters.min_win_probability}
+                  onChange={(e) => updateFilters({ min_win_probability: parseFloat(e.target.value) })}
+                />
+                <span>{(filters.min_win_probability * 100).toFixed(0)}%</span>
+              </div>
+              
+              <div className="filter-group">
+                <label>Max Signals:</label>
+                <input
+                  type="number"
+                  min="5"
+                  max="50"
+                  value={filters.max_signals}
+                  onChange={(e) => updateFilters({ max_signals: parseInt(e.target.value) })}
+                />
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Recent Alerts */}
+      {alerts.length > 0 && (
+        <div className="alerts-panel">
+          <h3>Recent Alerts</h3>
+          <div className="alerts-list">
+            {alerts.slice(-5).map((alert, index) => (
+              <motion.div
+                key={alert.alert_id}
+                className={`alert alert-${alert.urgency.toLowerCase()}`}
+                initial={{ x: -100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <AlertTriangle size={16} />
+                <span className="alert-message">{alert.message}</span>
+                <span className="alert-time">
+                  {new Date(alert.timestamp).toLocaleTimeString()}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Live Signals Grid */}
+      <div className="signals-grid">
+        <AnimatePresence>
+          {sortedSignals.map((signal, index) => (
+            <motion.div
+              key={signal.signal_id}
+              className="signal-card"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ delay: index * 0.05 }}
+              style={{ borderLeftColor: getStrengthColor(signal.strength) }}
+            >
+              {/* Signal Header */}
+              <div className="signal-header">
+                <div className="signal-title">
+                  {getSignalIcon(signal.signal_type)}
+                  <div className="signal-info">
+                    <h3>{signal.symbol}</h3>
+                    <span className="sector">{signal.sector}</span>
+                  </div>
+                </div>
+                <div className="signal-priority">
+                  <div className="priority-badge" style={{ backgroundColor: getStrengthColor(signal.strength) }}>
+                    {signal.priority}
+                  </div>
+                </div>
+              </div>
+
+              {/* Signal Metrics */}
+              <div className="signal-metrics">
+                <div className="metric">
+                  <Target size={14} />
+                  <span>{(signal.win_probability * 100).toFixed(1)}%</span>
+                  <small>Win Rate</small>
+                </div>
+                <div className="metric">
+                  <Zap size={14} />
+                  <span style={{ color: getHeatColor(signal.heat_score) }}>
+                    {(signal.heat_score * 100).toFixed(0)}
+                  </span>
+                  <small>Heat</small>
+                </div>
+                <div className="metric">
+                  <DollarSign size={14} />
+                  <span>{signal.risk_reward_ratio.toFixed(1)}:1</span>
+                  <small>R:R</small>
+                </div>
+                <div className="metric">
+                  <Clock size={14} />
+                  <span>{signal.expiration_suggestion.split(' ')[0]}</span>
+                  <small>Exp</small>
+                </div>
+              </div>
+
+              {/* Price Targets */}
+              <div className="price-targets">
+                <div className="price-row">
+                  <span className="label">Entry:</span>
+                  <span className="value">
+                    ${signal.entry_price_low.toFixed(2)} - ${signal.entry_price_high.toFixed(2)}
+                  </span>
+                </div>
+                <div className="price-row">
+                  <span className="label">Target:</span>
+                  <span className="value target">${signal.target_price.toFixed(2)}</span>
+                </div>
+                <div className="price-row">
+                  <span className="label">Stop:</span>
+                  <span className="value stop">${signal.stop_loss.toFixed(2)}</span>
+                </div>
+              </div>
+
+              {/* Signal Details */}
+              <div className="signal-details">
+                <div className="strategy-badge">
+                  {signal.strategy.toUpperCase()}
+                </div>
+                <div className="strength-badge" style={{ backgroundColor: getStrengthColor(signal.strength) }}>
+                  {signal.strength.replace('_', ' ')}
+                </div>
+              </div>
+
+              {/* Entry Signals */}
+              {signal.entry_signals && signal.entry_signals.length > 0 && (
+                <div className="entry-signals">
+                  <small>Entry Signals:</small>
+                  <ul>
+                    {signal.entry_signals.slice(0, 3).map((sig, i) => (
+                      <li key={i}>{sig}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Risk Factors */}
+              {signal.risk_factors && signal.risk_factors.length > 0 && (
+                <div className="risk-factors">
+                  <small>⚠️ Risks:</small>
+                  <div className="risk-list">
+                    {signal.risk_factors.slice(0, 2).map((risk, i) => (
+                      <span key={i} className="risk-tag">{risk}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Timestamp */}
+              <div className="signal-timestamp">
+                Generated: {new Date(signal.generated_at).toLocaleTimeString()}
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+
+      {/* Empty State */}
+      {signals.length === 0 && (
+        <div className="empty-state">
+          <Zap size={48} />
+          <h3>No Active Signals</h3>
+          <p>Waiting for high-probability options opportunities...</p>
+          {!streamingStats.is_streaming && (
+            <button className="start-streaming-btn" onClick={startStreaming}>
+              Start Live Stream
+            </button>
+          )}
+        </div>
+      )}
+
+      {/* Footer Stats */}
+      <div className="dashboard-footer">
+        <div className="stats">
+          <div className="stat">
+            <span className="label">Connections:</span>
+            <span className="value">{streamingStats.active_connections || 0}</span>
+          </div>
+          <div className="stat">
+            <span className="label">Signals Sent:</span>
+            <span className="value">{streamingStats.signals_sent || 0}</span>
+          </div>
+          <div className="stat">
+            <span className="label">Last Update:</span>
+            <span className="value">
+              {signals.length > 0 ? new Date().toLocaleTimeString() : 'Never'}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LiveSignalsDashboard;

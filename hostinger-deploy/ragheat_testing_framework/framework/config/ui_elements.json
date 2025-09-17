@@ -1,0 +1,137 @@
+{
+  "homepage": {
+    "title": "//title[contains(text(), 'RAGHeat')]",
+    "main_container": "//div[@id='root']",
+    "header": "//header | //div[contains(@class, 'header')]",
+    "navigation": "//nav | //div[contains(@class, 'nav')]"
+  },
+  "dashboard_buttons": {
+    "revolutionary_dashboard": "//button[contains(text(), '🚀 REVOLUTIONARY DASHBOARD')]",
+    "market_dashboard": "//button[contains(text(), '📊 MARKET DASHBOARD')]",
+    "live_options_signals": "//button[contains(text(), '📈 LIVE OPTIONS SIGNALS')]",
+    "live_data_stream": "//button[contains(text(), '🔥 LIVE DATA STREAM')]",
+    "knowledge_graph": "//button[contains(text(), '🌐 KNOWLEDGE GRAPH')]",
+    "enhanced_graph": "//button[contains(text(), '🚀 ENHANCED GRAPH')]",
+    "sigmajs_revolution": "//button[contains(text(), '⚡ SIGMA.JS REVOLUTION')]",
+    "ontology_graph": "//button[contains(text(), '🧠 ONTOLOGY GRAPH')]",
+    "advanced_kg": "//button[contains(text(), '🚀 ADVANCED KG')]",
+    "portfolio_ai": "//button[contains(text(), '🤖 PORTFOLIO AI')]"
+  },
+  "tab_navigation": {
+    "overview_tab": "//button[contains(text(), 'OVERVIEW')]",
+    "heat_propagation_tab": "//button[contains(text(), 'HEAT PROPAGATION')]", 
+    "sector_analysis_tab": "//button[contains(text(), 'SECTOR ANALYSIS')]",
+    "live_signals_tab": "//button[contains(text(), 'LIVE SIGNALS')]",
+    "ai_models_tab": "//button[contains(text(), 'AI MODELS')]"
+  },
+  "streaming_controls": {
+    "start_stream": "//button[contains(text(), 'START STREAM')]",
+    "stop_stream": "//button[contains(text(), 'STOP STREAM')]",
+    "pause_stream": "//button[contains(text(), 'PAUSE STREAM')]"
+  },
+  "portfolio_construction": {
+    "stock_input": "//input[@placeholder='Enter stock symbol' or @name='stock' or contains(@class, 'stock-input')]",
+    "stock_search": "//input[contains(@placeholder, 'stock') or contains(@placeholder, 'Stock')]",
+    "add_stock_button": "//button[contains(text(), 'Add Stock') or contains(text(), 'ADD')]",
+    "remove_stock_button": "//button[contains(text(), 'Remove') or contains(@class, 'remove')]",
+    "construct_portfolio_button": "//button[contains(text(), 'Construct Portfolio') or contains(text(), 'BUILD PORTFOLIO')]",
+    "analyze_button": "//button[contains(text(), 'Analyze') or contains(text(), 'ANALYZE')]",
+    "reset_button": "//button[contains(text(), 'Reset') or contains(text(), 'CLEAR')]"
+  },
+  "portfolio_results": {
+    "results_container": "//div[contains(@class, 'results') or contains(@class, 'portfolio-results')]",
+    "weights_table": "//table[contains(@class, 'weights') or contains(@class, 'portfolio')]",
+    "performance_metrics": "//div[contains(@class, 'metrics') or contains(@class, 'performance')]",
+    "risk_analysis": "//div[contains(@class, 'risk') or contains(@class, 'analysis')]",
+    "agent_insights": "//div[contains(@class, 'insights') or contains(@class, 'agents')]",
+    "sharpe_ratio": "//*[contains(text(), 'Sharpe') or contains(text(), 'sharpe')]",
+    "volatility": "//*[contains(text(), 'Volatility') or contains(text(), 'volatility')]",
+    "expected_return": "//*[contains(text(), 'Return') or contains(text(), 'return')]"
+  },
+  "data_visualization": {
+    "charts_container": "//div[contains(@class, 'chart') or contains(@class, 'graph')]",
+    "pie_chart": "//*[name()='svg'][contains(@class, 'pie') or contains(@class, 'chart')]",
+    "line_chart": "//*[name()='svg'][contains(@class, 'line') or contains(@class, 'chart')]",
+    "bar_chart": "//*[name()='svg'][contains(@class, 'bar') or contains(@class, 'chart')]",
+    "heatmap": "//div[contains(@class, 'heatmap') or contains(@class, 'heat')]",
+    "legend": "//div[contains(@class, 'legend') or contains(@class, 'Legend')]"
+  },
+  "multi_agent_system": {
+    "agent_status_panel": "//div[contains(@class, 'agent') or contains(@class, 'status')]",
+    "fundamental_agent": "//*[contains(text(), 'Fundamental') or contains(text(), 'fundamental')]",
+    "sentiment_agent": "//*[contains(text(), 'Sentiment') or contains(text(), 'sentiment')]",
+    "technical_agent": "//*[contains(text(), 'Technical') or contains(text(), 'technical')]",
+    "risk_agent": "//*[contains(text(), 'Risk') or contains(text(), 'risk')]",
+    "consensus_panel": "//div[contains(@class, 'consensus') or contains(@class, 'summary')]"
+  },
+  "real_time_data": {
+    "live_feed": "//div[contains(@class, 'live') or contains(@class, 'stream')]",
+    "websocket_status": "//*[contains(text(), 'Connected') or contains(text(), 'Live')]",
+    "data_refresh": "//button[contains(text(), 'Refresh') or contains(@class, 'refresh')]",
+    "pause_resume": "//button[contains(text(), 'Pause') or contains(text(), 'Resume')]",
+    "timestamp": "//*[contains(@class, 'timestamp') or contains(@class, 'time')]"
+  },
+  "knowledge_graph": {
+    "graph_container": "//div[contains(@class, 'graph') or contains(@class, 'network')]",
+    "nodes": "//*[name()='circle' or contains(@class, 'node')]",
+    "edges": "//*[name()='line' or contains(@class, 'edge') or contains(@class, 'link')]",
+    "graph_controls": "//div[contains(@class, 'controls') or contains(@class, 'toolbar')]",
+    "zoom_in": "//button[contains(text(), '+') or contains(@class, 'zoom-in')]",
+    "zoom_out": "//button[contains(text(), '-') or contains(@class, 'zoom-out')]",
+    "reset_view": "//button[contains(text(), 'Reset') or contains(@class, 'reset')]"
+  },
+  "options_trading": {
+    "options_panel": "//div[contains(@class, 'options') or contains(@class, 'trading')]",
+    "buy_signals": "//*[contains(text(), 'BUY') or contains(@class, 'buy')]",
+    "sell_signals": "//*[contains(text(), 'SELL') or contains(@class, 'sell')]",
+    "hold_signals": "//*[contains(text(), 'HOLD') or contains(@class, 'hold')]",
+    "signal_strength": "//*[contains(@class, 'strength') or contains(@class, 'confidence')]",
+    "expiry_date": "//*[contains(text(), 'Expiry') or contains(text(), 'expiry')]"
+  },
+  "market_overview": {
+    "market_status": "//*[contains(text(), 'Market') or contains(@class, 'market')]",
+    "indices": "//div[contains(@class, 'indices') or contains(@class, 'index')]",
+    "top_movers": "//div[contains(@class, 'movers') or contains(@class, 'trending')]",
+    "sector_performance": "//div[contains(@class, 'sector') or contains(@class, 'sectors')]",
+    "market_heat": "//div[contains(@class, 'heat') or contains(@class, 'temperature')]"
+  },
+  "user_interface": {
+    "loading_spinner": "//*[contains(@class, 'loading') or contains(@class, 'spinner')]",
+    "error_message": "//*[contains(@class, 'error') or contains(@class, 'alert-danger')]",
+    "success_message": "//*[contains(@class, 'success') or contains(@class, 'alert-success')]",
+    "warning_message": "//*[contains(@class, 'warning') or contains(@class, 'alert-warning')]",
+    "modal_dialog": "//div[contains(@class, 'modal') or contains(@class, 'dialog')]",
+    "close_button": "//button[contains(@class, 'close') or contains(text(), '×')]"
+  },
+  "responsive_elements": {
+    "mobile_menu": "//button[contains(@class, 'hamburger') or contains(@class, 'menu-toggle')]",
+    "sidebar": "//div[contains(@class, 'sidebar') or contains(@class, 'drawer')]",
+    "main_content": "//main | //div[contains(@class, 'main') or contains(@class, 'content')]",
+    "footer": "//footer | //div[contains(@class, 'footer')]"
+  },
+  "form_elements": {
+    "text_inputs": "//input[@type='text' or @type='search' or not(@type)]",
+    "number_inputs": "//input[@type='number']",
+    "select_dropdowns": "//select",
+    "checkboxes": "//input[@type='checkbox']",
+    "radio_buttons": "//input[@type='radio']",
+    "submit_buttons": "//button[@type='submit'] | //input[@type='submit']",
+    "form_validation": "//*[contains(@class, 'invalid') or contains(@class, 'error')]"
+  },
+  "data_tables": {
+    "table_headers": "//th | //td[contains(@class, 'header')]",
+    "table_rows": "//tr[not(contains(@class, 'header'))]",
+    "table_cells": "//td",
+    "sortable_columns": "//th[contains(@class, 'sortable') or @data-sort]",
+    "pagination": "//div[contains(@class, 'pagination') or contains(@class, 'pager')]",
+    "rows_per_page": "//select[contains(@class, 'page-size') or contains(@name, 'size')]"
+  },
+  "advanced_components": {
+    "tooltips": "//*[@title or contains(@class, 'tooltip')]",
+    "dropdowns": "//div[contains(@class, 'dropdown') or contains(@class, 'menu')]",
+    "tabs": "//div[contains(@class, 'tab') or contains(@role, 'tab')]",
+    "accordions": "//div[contains(@class, 'accordion') or contains(@class, 'collapse')]",
+    "progress_bars": "//*[contains(@class, 'progress') or contains(@role, 'progressbar')]",
+    "badges": "//*[contains(@class, 'badge') or contains(@class, 'label')]"
+  }
+}

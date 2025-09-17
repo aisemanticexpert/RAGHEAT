@@ -1,0 +1,72 @@
+{
+  "analysis_timestamp": "2025-09-14T16:03:29.949617",
+  "total_issues_detected": 3,
+  "issues_by_severity": {
+    "high": 0,
+    "medium": 0,
+    "low": 3
+  },
+  "detected_issues": [
+    {
+      "type": "sources_count_unrealistic",
+      "stock": "AAPL",
+      "value": 0,
+      "expected_range": "(0, 10000]",
+      "severity": "low"
+    },
+    {
+      "type": "sources_count_unrealistic",
+      "stock": "GOOGL",
+      "value": 0,
+      "expected_range": "(0, 10000]",
+      "severity": "low"
+    },
+    {
+      "type": "sources_count_unrealistic",
+      "stock": "MSFT",
+      "value": 0,
+      "expected_range": "(0, 10000]",
+      "severity": "low"
+    }
+  ],
+  "correction_suggestions": [
+    {
+      "issue": {
+        "type": "sources_count_unrealistic",
+        "stock": "AAPL",
+        "value": 0,
+        "expected_range": "(0, 10000]",
+        "severity": "low"
+      },
+      "correction": "Manual review required",
+      "implementation": "Developer investigation needed"
+    },
+    {
+      "issue": {
+        "type": "sources_count_unrealistic",
+        "stock": "GOOGL",
+        "value": 0,
+        "expected_range": "(0, 10000]",
+        "severity": "low"
+      },
+      "correction": "Manual review required",
+      "implementation": "Developer investigation needed"
+    },
+    {
+      "issue": {
+        "type": "sources_count_unrealistic",
+        "stock": "MSFT",
+        "value": 0,
+        "expected_range": "(0, 10000]",
+        "severity": "low"
+      },
+      "correction": "Manual review required",
+      "implementation": "Developer investigation needed"
+    }
+  ],
+  "api_endpoints_tested": [
+    "/portfolio/construct",
+    "/analysis/fundamental",
+    "/analysis/sentiment"
+  ]
+}

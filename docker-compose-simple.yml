@@ -1,0 +1,52 @@
+services:
+  # Portfolio API - Simple version
+  portfolio-api:
+    build:
+      context: ./backend/portfolio_agents
+      dockerfile: Dockerfile.simple
+    container_name: ragheat-portfolio-api
+    ports:
+      - "8001:8000"
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./backend/portfolio_agents:/app
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # Frontend - Simple build
+  portfolio-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.simple
+    container_name: ragheat-frontend
+    ports:
+      - "3001:80"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8001
+    depends_on:
+      - portfolio-api
+    restart: unless-stopped
+
+  # Nginx - Simple proxy
+  nginx:
+    image: nginx:alpine
+    container_name: ragheat-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx-simple.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - portfolio-api
+      - portfolio-frontend
+    restart: unless-stopped
+
+networks:
+  default:
+    name: ragheat-simple

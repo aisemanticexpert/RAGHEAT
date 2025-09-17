@@ -1,0 +1,248 @@
+{
+  "validation_timestamp": "2025-09-14T16:03:38.153195",
+  "api_base": "http://localhost:8001",
+  "test_results": {
+    "api_accuracy": {
+      "portfolio": {
+        "status": "valid",
+        "issues": [],
+        "data": {
+          "portfolio_weights": {
+            "AAPL": 0.08043605934516461,
+            "GOOGL": 0.2423982477420933,
+            "MSFT": 0.2679006798404857,
+            "TSLA": 0.17900679192899444,
+            "AMZN": 0.23025822114326203
+          },
+          "performance_metrics": {
+            "expected_return": 0.1377326519935647,
+            "volatility": 0.1638063252955092,
+            "sharpe_ratio": 0.8408262119615516,
+            "max_drawdown": 0.3289590095695145
+          },
+          "risk_analysis": {
+            "beta": 1.15,
+            "var_95": 0.025,
+            "diversification_score": 0.68
+          },
+          "agent_insights": {
+            "fundamental_analyst": "Analysis of AAPL, GOOGL, MSFT shows strong fundamentals with average P/E ratio of 18.5",
+            "sentiment_analyst": "Market sentiment for portfolio is 72% positive based on recent news and social media",
+            "valuation_analyst": "Technical indicators suggest AAPL is undervalued by approximately 12%",
+            "heat_diffusion_analyst": "Network analysis shows strong correlation patterns between selected stocks",
+            "risk_analyst": "Portfolio beta is 1.15 with diversification score of 0.68",
+            "portfolio_coordinator": "Optimal allocation achieved with expected Sharpe ratio of 0.841"
+          },
+          "construction_timestamp": "2025-09-14T16:03:38.164930",
+          "status": "completed"
+        },
+        "weights_sum": 1.0,
+        "metrics_valid": true,
+        "risk_valid": true
+      },
+      "fundamental": {
+        "status": "valid",
+        "issues": [],
+        "data": {
+          "analysis_type": "fundamental",
+          "stocks": [
+            "AAPL",
+            "GOOGL",
+            "MSFT",
+            "TSLA",
+            "AMZN"
+          ],
+          "results": {
+            "AAPL": {
+              "pe_ratio": 12.730734166345226,
+              "debt_to_equity": 0.5392566779029346,
+              "roe": 0.24286278585966722,
+              "revenue_growth": 0.07963075349352762,
+              "recommendation": "HOLD"
+            },
+            "GOOGL": {
+              "pe_ratio": 15.896362621652386,
+              "debt_to_equity": 0.5941095405304233,
+              "roe": 0.17373115579301104,
+              "revenue_growth": 0.039894461373477116,
+              "recommendation": "SELL"
+            },
+            "MSFT": {
+              "pe_ratio": 21.204301371436188,
+              "debt_to_equity": 0.23402638093024064,
+              "roe": 0.22026137039163163,
+              "revenue_growth": 0.10678645804002433,
+              "recommendation": "HOLD"
+            },
+            "TSLA": {
+              "pe_ratio": 16.214044550339462,
+              "debt_to_equity": 0.7667221118549123,
+              "roe": 0.14595949403339673,
+              "revenue_growth": -0.012357413216343871,
+              "recommendation": "BUY"
+            },
+            "AMZN": {
+              "pe_ratio": 23.20210717964178,
+              "debt_to_equity": 0.4154594625667443,
+              "roe": 0.23197432186486855,
+              "revenue_growth": 0.13523240760227,
+              "recommendation": "BUY"
+            }
+          },
+          "timestamp": "2025-09-14T16:03:38.170107"
+        },
+        "stocks_analyzed": 5
+      },
+      "sentiment": {
+        "status": "invalid",
+        "issues": [
+          "AAPL sources 0 unrealistic",
+          "AAPL invalid recommendation ",
+          "GOOGL sources 0 unrealistic",
+          "GOOGL invalid recommendation ",
+          "MSFT sources 0 unrealistic",
+          "MSFT invalid recommendation ",
+          "TSLA sources 0 unrealistic",
+          "TSLA invalid recommendation ",
+          "AMZN sources 0 unrealistic",
+          "AMZN invalid recommendation "
+        ],
+        "data": {
+          "analysis_type": "sentiment",
+          "stocks": [
+            "AAPL",
+            "GOOGL",
+            "MSFT",
+            "TSLA",
+            "AMZN"
+          ],
+          "results": {
+            "AAPL": {
+              "news_sentiment": 0.7591522818109262,
+              "social_sentiment": 0.4160490908015912,
+              "analyst_sentiment": 0.4715965996905225,
+              "overall_sentiment": 0.7046436471635242,
+              "sentiment_trend": "POSITIVE"
+            },
+            "GOOGL": {
+              "news_sentiment": 0.5912317491207272,
+              "social_sentiment": 0.6828012428921207,
+              "analyst_sentiment": 0.6662630549103234,
+              "overall_sentiment": 0.3692721319974435,
+              "sentiment_trend": "NEGATIVE"
+            },
+            "MSFT": {
+              "news_sentiment": 0.48125266527303684,
+              "social_sentiment": 0.5557131042646848,
+              "analyst_sentiment": 0.4581346810891459,
+              "overall_sentiment": 0.6545776124567191,
+              "sentiment_trend": "NEUTRAL"
+            },
+            "TSLA": {
+              "news_sentiment": 0.6999255835093439,
+              "social_sentiment": 0.6034414569770112,
+              "analyst_sentiment": 0.5427212271541082,
+              "overall_sentiment": 0.4616568454990161,
+              "sentiment_trend": "NEUTRAL"
+            },
+            "AMZN": {
+              "news_sentiment": 0.4250858569068648,
+              "social_sentiment": 0.5648343962546076,
+              "analyst_sentiment": 0.5613668476275664,
+              "overall_sentiment": 0.5278840644042453,
+              "sentiment_trend": "NEUTRAL"
+            }
+          },
+          "timestamp": "2025-09-14T16:03:38.175784"
+        },
+        "stocks_analyzed": 5
+      }
+    },
+    "market_data": [
+      {
+        "stock": "AAPL",
+        "status": "error",
+        "message": "429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v6/finance/quoteSummary/AAPL?modules=financialData&modules=quoteType&modules=defaultKeyStatistics&modules=assetProfile&modules=summaryDetail&ssl=true"
+      },
+      {
+        "stock": "GOOGL",
+        "status": "error",
+        "message": "429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v6/finance/quoteSummary/GOOGL?modules=financialData&modules=quoteType&modules=defaultKeyStatistics&modules=assetProfile&modules=summaryDetail&ssl=true"
+      },
+      {
+        "stock": "MSFT",
+        "status": "error",
+        "message": "429 Client Error: Too Many Requests for url: https://query2.finance.yahoo.com/v6/finance/quoteSummary/MSFT?modules=financialData&modules=quoteType&modules=defaultKeyStatistics&modules=assetProfile&modules=summaryDetail&ssl=true"
+      }
+    ],
+    "calculations": [
+      {
+        "test": "Single stock AAPL",
+        "passed": true,
+        "weights": {
+          "AAPL": 1.0
+        },
+        "expected": {
+          "AAPL": 1.0
+        }
+      },
+      {
+        "test": "1 stocks weights sum",
+        "passed": true,
+        "weights_sum": 1.0
+      },
+      {
+        "test": "2 stocks weight count",
+        "passed": true,
+        "actual_count": 2,
+        "expected_count": 2
+      },
+      {
+        "test": "2 stocks weights sum",
+        "passed": true,
+        "weights_sum": 1.0
+      },
+      {
+        "test": "3 stocks weight count",
+        "passed": true,
+        "actual_count": 3,
+        "expected_count": 3
+      },
+      {
+        "test": "3 stocks weights sum",
+        "passed": true,
+        "weights_sum": 1.0
+      },
+      {
+        "test": "5 stocks weight count",
+        "passed": true,
+        "actual_count": 5,
+        "expected_count": 5
+      },
+      {
+        "test": "5 stocks weights sum",
+        "passed": true,
+        "weights_sum": 1.0
+      }
+    ],
+    "consistency": {
+      "total_runs": 3,
+      "successful_runs": 3,
+      "agent_count_consistent": true,
+      "agent_counts": [
+        6,
+        6,
+        6
+      ],
+      "sharpe_consistent": true,
+      "sharpe_variance": 0.09446669923244638,
+      "sharpe_ratios": [
+        0.4630080177925534,
+        0.6907491225402972,
+        0.6123510890174821
+      ],
+      "overall_consistent": true
+    }
+  },
+  "overall_score": 66.66666666666666
+}

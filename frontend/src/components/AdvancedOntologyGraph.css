@@ -1,0 +1,638 @@
+/* Advanced Ontology-Aware Knowledge Graph Styles */
+.advanced-ontology-graph {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 25%, #2a1a4e 50%, #1a1a3e 75%, #0a0a1a 100%);
+  color: #ffffff;
+  font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Professional Control Panel */
+.control-panel {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 15px 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.level-controls, .layout-controls, .action-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.level-controls label, .layout-controls label {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.level-selector, .layout-selector {
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #00D4FF;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 200px;
+}
+
+.level-selector:hover, .layout-selector:hover {
+  border-color: #00FF88;
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+}
+
+.level-selector:focus, .layout-selector:focus {
+  outline: none;
+  border-color: #FFD700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+.level-selector option, .layout-selector option {
+  background: #1a1a3e;
+  color: #ffffff;
+  padding: 10px;
+}
+
+/* Action Controls */
+.export-btn, .clear-filters-btn {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #00D4FF, #0099CC);
+  border: none;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.export-btn:hover, .clear-filters-btn:hover {
+  background: linear-gradient(135deg, #00FF88, #00CC66);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 255, 136, 0.3);
+}
+
+.clear-filters-btn {
+  background: linear-gradient(135deg, #FF6B35, #CC4422);
+}
+
+.clear-filters-btn:hover {
+  background: linear-gradient(135deg, #FF8855, #DD5533);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+/* Advanced Filter Panel */
+.filter-panel {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  width: 300px;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  z-index: 900;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+
+.filter-panel h4 {
+  margin: 0 0 16px 0;
+  color: #00FF88;
+  font-size: 16px;
+  font-weight: 700;
+  border-bottom: 2px solid rgba(0, 255, 136, 0.3);
+  padding-bottom: 8px;
+}
+
+.filter-group {
+  margin-bottom: 20px;
+}
+
+.filter-group label {
+  display: block;
+  color: #cccccc;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filter-checkbox {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  margin-bottom: 0 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+.filter-checkbox:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.filter-checkbox input[type="checkbox"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #00D4FF;
+  border-radius: 3px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-checkbox input[type="checkbox"]:checked {
+  background: #00FF88;
+  border-color: #00FF88;
+}
+
+.filter-checkbox input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: -2px;
+  left: 2px;
+  color: #000000;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.filter-label {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Type-specific styling */
+.type-sector { color: #00D4FF; }
+.type-stock { color: #00FF88; }
+.type-buysignal { color: #00FF88; }
+.type-sellsignal { color: #FF6B35; }
+.type-holdsignal { color: #FFA726; }
+.type-technicalindicator { color: #9966FF; }
+.type-corporation { color: #66CCFF; }
+
+/* Main Graph Container */
+.graph-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+/* Custom scrollbar for filter panel */
+.filter-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.filter-panel::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.filter-panel::-webkit-scrollbar-thumb {
+  background: rgba(0, 212, 255, 0.6);
+  border-radius: 3px;
+}
+
+.filter-panel::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 212, 255, 0.8);
+}
+
+/* Loading Overlay */
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  backdrop-filter: blur(5px);
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 5px solid rgba(0, 212, 255, 0.3);
+  border-top: 5px solid #00D4FF;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+.loading-overlay p {
+  color: #00D4FF;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error Overlay */
+.error-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 107, 53, 0.1);
+  border: 2px solid rgba(255, 107, 53, 0.5);
+  padding: 30px;
+  border-radius: 12px;
+  color: #FF6B35;
+  font-weight: 600;
+  text-align: center;
+  z-index: 2000;
+  backdrop-filter: blur(15px);
+  max-width: 400px;
+}
+
+.error-overlay h3 {
+  margin: 0 0 15px 0;
+  color: #FF6B35;
+}
+
+.error-overlay button {
+  margin-top: 15px;
+  padding: 8px 16px;
+  background: #FF6B35;
+  border: none;
+  border-radius: 6px;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.error-overlay button:hover {
+  background: #FF8855;
+}
+
+/* Node Details Panel */
+.node-details-panel {
+  position: absolute;
+  top: 200px;
+  right: 20px;
+  width: 320px;
+  background: rgba(0, 0, 0, 0.95);
+  border: 2px solid #00D4FF;
+  border-radius: 12px;
+  z-index: 1000;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 12px 40px rgba(0, 212, 255, 0.2);
+  overflow: hidden;
+}
+
+.panel-header {
+  background: linear-gradient(135deg, #00D4FF, #0099CC);
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panel-header h4 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.panel-header button {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.panel-header button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.node-properties {
+  padding: 20px;
+}
+
+.property-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.property-row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.property-row span:first-child {
+  color: #cccccc;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.property-value {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.node-type {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Market Overview Panel */
+.market-overview-panel {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 16px 20px;
+  z-index: 900;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.market-overview-panel h4 {
+  margin: 0 0 12px 0;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.market-stats {
+  display: flex;
+  gap: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: #999999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.stat-value.heat-score {
+  color: #FF6600;
+}
+
+.stat-value.sentiment-bullish { color: #00FF88; }
+.stat-value.sentiment-bearish { color: #FF6B35; }
+.stat-value.sentiment-neutral { color: #FFA726; }
+.stat-value.sentiment-cautiously-bullish { color: #66FF99; }
+.stat-value.sentiment-cautiously-bearish { color: #FF9966; }
+
+/* Cytoscape Custom Styles */
+.advanced-ontology-graph .cy-container {
+  background: transparent !important;
+}
+
+/* Highlighted and dimmed states for interactive selection */
+:global(.cy-container .highlighted) {
+  opacity: 1 !important;
+  z-index: 999 !important;
+}
+
+:global(.cy-container .dimmed) {
+  opacity: 0.3 !important;
+  z-index: 1 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+  .control-panel {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+  
+  .level-controls, .layout-controls, .action-controls {
+    justify-content: center;
+  }
+  
+  .filter-panel {
+    width: 280px;
+  }
+  
+  .node-details-panel {
+    width: 300px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .control-panel {
+    left: 10px;
+    right: 10px;
+    padding: 12px 16px;
+  }
+  
+  .filter-panel {
+    left: 10px;
+    width: 260px;
+  }
+  
+  .node-details-panel {
+    right: 10px;
+    width: 280px;
+  }
+  
+  .market-overview-panel {
+    left: 10px;
+    bottom: 10px;
+  }
+  
+  .market-stats {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .stat-item {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .advanced-ontology-graph {
+    height: 100vh;
+  }
+  
+  .control-panel {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .filter-panel {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    max-height: none;
+  }
+  
+  .graph-container {
+    position: relative;
+    height: 60vh;
+    top: 0;
+  }
+  
+  .node-details-panel {
+    position: relative;
+    right: auto;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .market-overview-panel {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+  }
+  
+  .advanced-ontology-graph {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+}
+
+/* Animation Classes */
+.node-enter {
+  opacity: 0;
+  transform: scale(0);
+  animation: nodeEnter 0.6s ease-out forwards;
+}
+
+@keyframes nodeEnter {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.edge-enter {
+  opacity: 0;
+  animation: edgeEnter 0.8s ease-out forwards;
+}
+
+@keyframes edgeEnter {
+  to {
+    opacity: 0.8;
+  }
+}
+
+/* Professional Hover and Focus Effects */
+.level-selector:hover, .layout-selector:hover {
+  transform: translateY(-1px);
+}
+
+.export-btn:active, .clear-filters-btn:active {
+  transform: translateY(1px);
+}
+
+/* Advanced gradients and effects */
+.advanced-ontology-graph::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 60%, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
